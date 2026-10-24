@@ -643,10 +643,14 @@
   <!-- QUIZ -->
   <section class="quiz-section" id="quiz">
     <div class="quiz-inner">
-      <div class="quiz-header">
+      <div class="quiz-header" id="quizHeader">
         <span class="section-label">FREE DIAGNOSIS</span>
         <h2 class="display">How sharp is your<br><em>Value Proposition?</em></h2>
         <p class="quiz-subtitle">8 questions. 2 minutes. Find out where you actually stand.</p>
+      </div>
+      <div class="quiz-header quiz-result-header" id="quizResultHeader" hidden>
+        <span class="section-label">YOUR RESULT</span>
+        <h2 class="display" id="resultHeadline"></h2>
       </div>
 
       <div class="quiz-trigger" id="quizTrigger">
@@ -1234,13 +1238,16 @@
 
   <script>
     (function() {
-      const questions    = document.querySelectorAll('.quiz-q');
-      const resultEl     = document.getElementById('quizResult');
-      const questionsEl  = document.getElementById('quizQuestions');
-      const quizTrigger  = document.getElementById('quizTrigger');
-      const quizContainer= document.getElementById('quizContainer');
-      const fanCards     = document.querySelectorAll('.fan-card');
-      const CIRCUMFERENCE = 326.7;
+      const questions       = document.querySelectorAll('.quiz-q');
+      const resultEl        = document.getElementById('quizResult');
+      const questionsEl     = document.getElementById('quizQuestions');
+      const quizTrigger     = document.getElementById('quizTrigger');
+      const quizContainer   = document.getElementById('quizContainer');
+      const fanCards        = document.querySelectorAll('.fan-card');
+      const quizHeader      = document.getElementById('quizHeader');
+      const quizResultHeader= document.getElementById('quizResultHeader');
+      const resultHeadline  = document.getElementById('resultHeadline');
+      const CIRCUMFERENCE   = 326.7;
 
       /* ── CARD SOUND ── */
       function playCardSound() {
@@ -1336,6 +1343,12 @@
         questionsEl.hidden = true;
         resultEl.classList.add('visible');
 
+        // swap header
+        const o0 = outcomes[cardOrder[0]];
+        resultHeadline.innerHTML = 'You scored <em>' + o0.pct + '% — ' + o0.word + '</em>';
+        quizHeader.hidden = true;
+        quizResultHeader.hidden = false;
+
         // reset dial
         const arc = document.getElementById('dialArc');
         arc.style.transition = 'none';
@@ -1407,6 +1420,8 @@
         questionsEl.hidden = false;
         quizContainer.hidden = true;
         quizTrigger.hidden = false;
+        quizHeader.hidden = false;
+        quizResultHeader.hidden = true;
         goToQuestion(0);
       });
     })();
