@@ -1321,7 +1321,7 @@
         fanCards.forEach((c, i) => {
           c.classList.remove('active','fanned');
           c.setAttribute('data-pos', i);
-          c.style.transform = 'rotate(0deg)';
+          c.style.transform = '';
           fillCard(i, outcomes[cardOrder[i]]);
         });
 
@@ -1340,7 +1340,7 @@
             activateTopCard();
             playCardSound();
           }, 450);
-        }, 100);
+        }, 150);
       }
 
       /* ── FAN CARD CLICKS ── */
