@@ -640,6 +640,139 @@
     </div>
   </div>
 
+  <!-- QUIZ -->
+  <section class="quiz-section" id="quiz">
+    <div class="quiz-inner">
+      <div class="quiz-header">
+        <span class="section-label">FREE DIAGNOSIS</span>
+        <h2 class="display">How sharp is your<br><em>Value Proposition?</em></h2>
+        <p class="quiz-subtitle">8 questions. 2 minutes. Find out where you actually stand.</p>
+      </div>
+
+      <div class="quiz-container">
+        <!-- QUESTIONS -->
+        <div class="quiz-questions" id="quizQuestions">
+
+          <div class="quiz-q active" data-q="1">
+            <div class="quiz-progress"><span id="qNum">1</span> / 8</div>
+            <h3>Can you explain what your product does in one sentence — without using the word "platform"?</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-value="4">Yes, easily</button>
+              <button class="quiz-opt" data-value="3">Mostly, but it feels a bit long</button>
+              <button class="quiz-opt" data-value="2">It depends on who I'm talking to</button>
+              <button class="quiz-opt" data-value="1">Not really, it always comes out different</button>
+            </div>
+          </div>
+
+          <div class="quiz-q" data-q="2">
+            <div class="quiz-progress"><span>2</span> / 8</div>
+            <h3>Do you know exactly who your best customer is - job title, company size, situation?</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-value="4">Yes, we have a very clear profile</button>
+              <button class="quiz-opt" data-value="3">We have a rough idea but it's broad</button>
+              <button class="quiz-opt" data-value="2">We're targeting multiple segments</button>
+              <button class="quiz-opt" data-value="1">Not really, we want to stay open</button>
+            </div>
+          </div>
+
+          <div class="quiz-q" data-q="3">
+            <div class="quiz-progress"><span>3</span> / 8</div>
+            <h3>Can you describe the specific pain your customer feels before they find you?</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-value="4">Yes, in their exact words</button>
+              <button class="quiz-opt" data-value="3">In general terms, yes</button>
+              <button class="quiz-opt" data-value="2">We assume we know, but haven't validated it</button>
+              <button class="quiz-opt" data-value="1">We focus more on the solution than the problem</button>
+            </div>
+          </div>
+
+          <div class="quiz-q" data-q="4">
+            <div class="quiz-progress"><span>4</span> / 8</div>
+            <h3>Do you know what your customer does instead of using you?</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-value="4">Yes, and we know exactly why we win against it</button>
+              <button class="quiz-opt" data-value="3">We know the main competitors</button>
+              <button class="quiz-opt" data-value="2">We know some, but not the full picture</button>
+              <button class="quiz-opt" data-value="1">We don't really focus on alternatives</button>
+            </div>
+          </div>
+
+          <div class="quiz-q" data-q="5">
+            <div class="quiz-progress"><span>5</span> / 8</div>
+            <h3>Do you have a customer who gets dramatically more value than others - and do you know why?</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-value="4">Yes, and it shapes how we sell</button>
+              <button class="quiz-opt" data-value="3">We have strong customers but haven't analysed the pattern</button>
+              <button class="quiz-opt" data-value="2">We treat all customers more or less the same</button>
+              <button class="quiz-opt" data-value="1">Not yet, we're still early</button>
+            </div>
+          </div>
+
+          <div class="quiz-q" data-q="6">
+            <div class="quiz-progress"><span>6</span> / 8</div>
+            <h3>When you pitch, do people lean in — or nod politely?</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-value="4">They lean in and ask sharp follow-up questions</button>
+              <button class="quiz-opt" data-value="3">Mixed - some get it immediately, others don't</button>
+              <button class="quiz-opt" data-value="2">Mostly polite nodding, then silence</button>
+              <button class="quiz-opt" data-value="1">We get a lot of "interesting" and not much else</button>
+            </div>
+          </div>
+
+          <div class="quiz-q" data-q="7">
+            <div class="quiz-progress"><span>7</span> / 8</div>
+            <h3>Would your co-founder or colleague describe your product the same way you just did?</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-value="4">Almost word for word</button>
+              <button class="quiz-opt" data-value="3">Similar, but with different emphasis</button>
+              <button class="quiz-opt" data-value="2">Probably a different angle</button>
+              <button class="quiz-opt" data-value="1">I honestly don't know</button>
+            </div>
+          </div>
+
+          <div class="quiz-q" data-q="8">
+            <div class="quiz-progress"><span>8</span> / 8</div>
+            <h3>If your product disappeared tomorrow, would your best customers be truly stuck?</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-value="4">Yes - they'd have a real problem</button>
+              <button class="quiz-opt" data-value="3">They'd be annoyed but would find something else</button>
+              <button class="quiz-opt" data-value="2">Probably not - there are alternatives</button>
+              <button class="quiz-opt" data-value="1">I'm not sure they'd even notice immediately</button>
+            </div>
+          </div>
+
+        </div><!-- /quiz-questions -->
+
+        <!-- RESULT -->
+        <div class="quiz-result" id="quizResult" hidden>
+          <div class="result-score-wrap">
+            <div class="result-dial">
+              <svg viewBox="0 0 120 120" class="dial-svg">
+                <circle cx="60" cy="60" r="52" fill="none" stroke="var(--light)" stroke-width="10"/>
+                <circle cx="60" cy="60" r="52" fill="none" stroke="var(--accent)" stroke-width="10"
+                  stroke-dasharray="326.7" stroke-dashoffset="326.7"
+                  stroke-linecap="round" transform="rotate(-90 60 60)"
+                  id="dialArc"/>
+              </svg>
+              <div class="dial-label">
+                <span class="dial-pct" id="dialPct">0%</span>
+                <span class="dial-word" id="dialWord">Sharp</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-content">
+            <h3 class="result-title display" id="resultTitle"></h3>
+            <p class="result-body" id="resultBody"></p>
+            <a href="https://www.cal.eu/jennykan11/30-min" class="btn btn-filled" target="_blank" id="resultCTA"></a>
+            <button class="quiz-restart" id="quizRestart">Retake the quiz</button>
+          </div>
+        </div>
+
+      </div><!-- /quiz-container -->
+    </div>
+  </section>
+
   <!-- CHALLENGES → GAINS -->
   <section class="challenges" id="challenges">
     <div class="container">
@@ -853,139 +986,6 @@
           <span>Senior General Quality Specialist · ASML</span>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- QUIZ -->
-  <section class="quiz-section" id="quiz">
-    <div class="quiz-inner">
-      <div class="quiz-header">
-        <span class="section-label">FREE DIAGNOSIS</span>
-        <h2 class="display">How sharp is your<br><em>Value Proposition?</em></h2>
-        <p class="quiz-subtitle">8 questions. 2 minutes. Find out where you actually stand.</p>
-      </div>
-
-      <div class="quiz-container">
-        <!-- QUESTIONS -->
-        <div class="quiz-questions" id="quizQuestions">
-
-          <div class="quiz-q active" data-q="1">
-            <div class="quiz-progress"><span id="qNum">1</span> / 8</div>
-            <h3>Can you explain what your product does in one sentence — without using the word "platform"?</h3>
-            <div class="quiz-options">
-              <button class="quiz-opt" data-value="4">Yes, easily</button>
-              <button class="quiz-opt" data-value="3">Mostly, but it feels a bit long</button>
-              <button class="quiz-opt" data-value="2">It depends on who I'm talking to</button>
-              <button class="quiz-opt" data-value="1">Not really, it always comes out different</button>
-            </div>
-          </div>
-
-          <div class="quiz-q" data-q="2">
-            <div class="quiz-progress"><span>2</span> / 8</div>
-            <h3>Do you know exactly who your best customer is - job title, company size, situation?</h3>
-            <div class="quiz-options">
-              <button class="quiz-opt" data-value="4">Yes, we have a very clear profile</button>
-              <button class="quiz-opt" data-value="3">We have a rough idea but it's broad</button>
-              <button class="quiz-opt" data-value="2">We're targeting multiple segments</button>
-              <button class="quiz-opt" data-value="1">Not really, we want to stay open</button>
-            </div>
-          </div>
-
-          <div class="quiz-q" data-q="3">
-            <div class="quiz-progress"><span>3</span> / 8</div>
-            <h3>Can you describe the specific pain your customer feels before they find you?</h3>
-            <div class="quiz-options">
-              <button class="quiz-opt" data-value="4">Yes, in their exact words</button>
-              <button class="quiz-opt" data-value="3">In general terms, yes</button>
-              <button class="quiz-opt" data-value="2">We assume we know, but haven't validated it</button>
-              <button class="quiz-opt" data-value="1">We focus more on the solution than the problem</button>
-            </div>
-          </div>
-
-          <div class="quiz-q" data-q="4">
-            <div class="quiz-progress"><span>4</span> / 8</div>
-            <h3>Do you know what your customer does instead of using you?</h3>
-            <div class="quiz-options">
-              <button class="quiz-opt" data-value="4">Yes, and we know exactly why we win against it</button>
-              <button class="quiz-opt" data-value="3">We know the main competitors</button>
-              <button class="quiz-opt" data-value="2">We know some, but not the full picture</button>
-              <button class="quiz-opt" data-value="1">We don't really focus on alternatives</button>
-            </div>
-          </div>
-
-          <div class="quiz-q" data-q="5">
-            <div class="quiz-progress"><span>5</span> / 8</div>
-            <h3>Do you have a customer who gets dramatically more value than others - and do you know why?</h3>
-            <div class="quiz-options">
-              <button class="quiz-opt" data-value="4">Yes, and it shapes how we sell</button>
-              <button class="quiz-opt" data-value="3">We have strong customers but haven't analysed the pattern</button>
-              <button class="quiz-opt" data-value="2">We treat all customers more or less the same</button>
-              <button class="quiz-opt" data-value="1">Not yet, we're still early</button>
-            </div>
-          </div>
-
-          <div class="quiz-q" data-q="6">
-            <div class="quiz-progress"><span>6</span> / 8</div>
-            <h3>When you pitch, do people lean in — or nod politely?</h3>
-            <div class="quiz-options">
-              <button class="quiz-opt" data-value="4">They lean in and ask sharp follow-up questions</button>
-              <button class="quiz-opt" data-value="3">Mixed - some get it immediately, others don't</button>
-              <button class="quiz-opt" data-value="2">Mostly polite nodding, then silence</button>
-              <button class="quiz-opt" data-value="1">We get a lot of "interesting" and not much else</button>
-            </div>
-          </div>
-
-          <div class="quiz-q" data-q="7">
-            <div class="quiz-progress"><span>7</span> / 8</div>
-            <h3>Would your co-founder or colleague describe your product the same way you just did?</h3>
-            <div class="quiz-options">
-              <button class="quiz-opt" data-value="4">Almost word for word</button>
-              <button class="quiz-opt" data-value="3">Similar, but with different emphasis</button>
-              <button class="quiz-opt" data-value="2">Probably a different angle</button>
-              <button class="quiz-opt" data-value="1">I honestly don't know</button>
-            </div>
-          </div>
-
-          <div class="quiz-q" data-q="8">
-            <div class="quiz-progress"><span>8</span> / 8</div>
-            <h3>If your product disappeared tomorrow, would your best customers be truly stuck?</h3>
-            <div class="quiz-options">
-              <button class="quiz-opt" data-value="4">Yes - they'd have a real problem</button>
-              <button class="quiz-opt" data-value="3">They'd be annoyed but would find something else</button>
-              <button class="quiz-opt" data-value="2">Probably not - there are alternatives</button>
-              <button class="quiz-opt" data-value="1">I'm not sure they'd even notice immediately</button>
-            </div>
-          </div>
-
-        </div><!-- /quiz-questions -->
-
-        <!-- RESULT -->
-        <div class="quiz-result" id="quizResult" hidden>
-          <div class="result-score-wrap">
-            <div class="result-dial">
-              <svg viewBox="0 0 120 120" class="dial-svg">
-                <circle cx="60" cy="60" r="52" fill="none" stroke="var(--light)" stroke-width="10"/>
-                <circle cx="60" cy="60" r="52" fill="none" stroke="var(--accent)" stroke-width="10"
-                  stroke-dasharray="326.7" stroke-dashoffset="326.7"
-                  stroke-linecap="round" transform="rotate(-90 60 60)"
-                  id="dialArc"/>
-              </svg>
-              <div class="dial-label">
-                <span class="dial-pct" id="dialPct">0%</span>
-                <span class="dial-word" id="dialWord">Sharp</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="result-content">
-            <h3 class="result-title display" id="resultTitle"></h3>
-            <p class="result-body" id="resultBody"></p>
-            <a href="https://www.cal.eu/jennykan11/30-min" class="btn btn-filled" target="_blank" id="resultCTA"></a>
-            <button class="quiz-restart" id="quizRestart">Retake the quiz</button>
-          </div>
-        </div>
-
-      </div><!-- /quiz-container -->
     </div>
   </section>
 
