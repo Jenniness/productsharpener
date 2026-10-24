@@ -748,40 +748,74 @@
         </div><!-- /quiz-questions -->
 
         <!-- RESULT -->
-        <div class="quiz-result" id="quizResult" hidden>
-          <div class="result-card">
-            <div class="card-corner tl">
-              <span id="cornerPct">0%</span>
-              <span id="cornerWord">Sharp</span>
-            </div>
-            <div class="card-corner br" aria-hidden="true">
-              <span id="cornerPct2">0%</span>
-              <span id="cornerWord2">Sharp</span>
-            </div>
+        <div class="quiz-result" id="quizResult">
+          <div class="deck-wrap">
 
-            <div class="result-score-wrap">
-              <div class="result-dial">
-                <svg viewBox="0 0 120 120" class="dial-svg">
-                  <circle cx="60" cy="60" r="52" fill="none" stroke="var(--light)" stroke-width="10"/>
-                  <circle cx="60" cy="60" r="52" fill="none" stroke="var(--accent)" stroke-width="10"
-                    stroke-dasharray="326.7" stroke-dashoffset="326.7"
-                    stroke-linecap="round" transform="rotate(-90 60 60)"
-                    id="dialArc"/>
-                  <text id="dialPct" x="60" y="56" text-anchor="middle" dominant-baseline="middle"
-                    font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#0F0F0F">0%</text>
-                  <text id="dialWord" x="60" y="74" text-anchor="middle" dominant-baseline="middle"
-                    font-family="Inter, sans-serif" font-size="9" font-weight="600" letter-spacing="1.5"
-                    fill="#C8401A" text-transform="uppercase"></text>
-                </svg>
+            <!-- background cards (other outcomes) -->
+            <div class="deck-bg-cards" id="deckBgCards">
+              <div class="bg-card" id="bgCard0" data-idx="0">
+                <div class="bg-card-label" id="bgLabel0"></div>
+              </div>
+              <div class="bg-card" id="bgCard1" data-idx="1">
+                <div class="bg-card-label" id="bgLabel1"></div>
+              </div>
+              <div class="bg-card" id="bgCard2" data-idx="2">
+                <div class="bg-card-label" id="bgLabel2"></div>
               </div>
             </div>
 
-            <div class="result-divider"></div>
-            <h3 class="result-title" id="resultTitle"></h3>
-            <p class="result-body" id="resultBody"></p>
-            <a href="https://www.cal.eu/jennykan11/30-min" class="btn btn-filled" target="_blank" id="resultCTA"></a>
-            <button class="quiz-restart" id="quizRestart">Retake the quiz</button>
+            <!-- top card: user result -->
+            <div class="result-card" id="topCard">
+              <div class="card-corner tl">
+                <em id="cornerPct">0%</em>
+                <span id="cornerWord"></span>
+              </div>
+              <div class="card-corner br" aria-hidden="true">
+                <em id="cornerPct2">0%</em>
+                <span id="cornerWord2"></span>
+              </div>
+
+              <div class="result-score-wrap">
+                <div class="result-dial">
+                  <svg viewBox="0 0 120 120" class="dial-svg">
+                    <circle cx="60" cy="60" r="52" fill="none" stroke="var(--light)" stroke-width="10"/>
+                    <circle cx="60" cy="60" r="52" fill="none" stroke="var(--accent)" stroke-width="10"
+                      stroke-dasharray="326.7" stroke-dashoffset="326.7"
+                      stroke-linecap="round" transform="rotate(-90 60 60)"
+                      id="dialArc"/>
+                    <text id="dialPct" x="60" y="56" text-anchor="middle" dominant-baseline="middle"
+                      font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#0F0F0F">0%</text>
+                    <text id="dialWord" x="60" y="74" text-anchor="middle" dominant-baseline="middle"
+                      font-family="Inter, sans-serif" font-size="9" font-weight="600" letter-spacing="1.5"
+                      fill="#C8401A"></text>
+                  </svg>
+                </div>
+              </div>
+
+              <div class="result-divider"></div>
+              <h3 class="result-title" id="resultTitle"></h3>
+              <p class="result-body" id="resultBody"></p>
+              <a href="https://www.cal.eu/jennykan11/30-min" class="btn btn-filled" target="_blank">Book the discovery call — get your Value Proposition sharp →</a>
+              <button class="quiz-restart" id="quizRestart">Retake the quiz</button>
+            </div>
+
+          </div><!-- /deck-wrap -->
+
+          <!-- expanded bg card overlay -->
+          <div class="bg-card-overlay" id="bgCardOverlay">
+            <div class="bg-card-expanded">
+              <button class="bg-card-close" id="bgCardClose">✕</button>
+              <div class="card-corner tl">
+                <em id="ovPct"></em>
+                <span id="ovWord"></span>
+              </div>
+              <div class="result-divider" style="margin-top:48px"></div>
+              <h3 class="result-title" id="ovTitle"></h3>
+              <p class="result-body" id="ovBody"></p>
+              <a href="https://www.cal.eu/jennykan11/30-min" class="btn btn-filled" target="_blank">Book the discovery call →</a>
+            </div>
           </div>
+
         </div>
 
       </div><!-- /quiz-container -->
@@ -1086,85 +1120,149 @@
       font-weight: 500;
     }
 
-    /* RESULT — playing card */
-    .quiz-result {
-      display: flex;
-      justify-content: center;
-      animation: fadeUp 0.4s ease;
+    /* RESULT — hidden by default, no display:flex override */
+    .quiz-result { display: none; }
+    .quiz-result.visible { display: block; animation: fadeUp 0.4s ease; }
+
+    /* deck */
+    .deck-wrap {
+      position: relative;
+      width: 340px;
+      margin: 0 auto;
+      height: 520px;
     }
-    .result-card {
+    .deck-bg-cards { position: absolute; inset: 0; }
+    .bg-card {
+      position: absolute;
+      width: 340px;
       background: var(--white);
       border: 1.5px solid var(--light);
       border-radius: 20px;
-      box-shadow: 0 8px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
+      height: 480px;
+      top: 0; left: 0;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px 24px;
+    }
+    .bg-card:nth-child(1) { transform: rotate(-6deg) translateY(12px); box-shadow: 0 4px 16px rgba(0,0,0,0.07); z-index: 1; }
+    .bg-card:nth-child(2) { transform: rotate(-3deg) translateY(6px);  box-shadow: 0 4px 16px rgba(0,0,0,0.07); z-index: 2; }
+    .bg-card:nth-child(3) { transform: rotate(4deg)  translateY(8px);  box-shadow: 0 4px 16px rgba(0,0,0,0.07); z-index: 3; }
+    .bg-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.13); }
+    .bg-card-label {
+      font-family: 'DM Serif Display', serif;
+      font-size: 13px;
+      color: var(--mid);
+      font-style: italic;
+    }
+
+    /* top card */
+    .result-card {
+      position: absolute;
       width: 340px;
-      padding: 40px 36px 36px;
-      position: relative;
+      background: var(--white);
+      border: 1.5px solid var(--light);
+      border-radius: 20px;
+      box-shadow: 0 12px 48px rgba(0,0,0,0.13), 0 2px 8px rgba(0,0,0,0.06);
+      padding: 44px 32px 32px;
+      top: 0; left: 0;
+      z-index: 10;
       text-align: center;
     }
     .card-corner {
       position: absolute;
-      font-family: 'DM Serif Display', serif;
-      font-size: 18px;
-      color: var(--accent);
       line-height: 1;
+    }
+    .card-corner em {
+      display: block;
+      font-family: 'DM Serif Display', serif;
+      font-style: normal;
+      font-size: 16px;
+      color: var(--accent);
     }
     .card-corner span {
       display: block;
       font-family: 'Inter', sans-serif;
-      font-size: 9px;
+      font-size: 8px;
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--mid);
       margin-top: 2px;
     }
-    .card-corner.tl { top: 20px; left: 22px; text-align: left; }
-    .card-corner.br { bottom: 20px; right: 22px; text-align: right; transform: rotate(180deg); }
+    .card-corner.tl { top: 18px; left: 20px; text-align: left; }
+    .card-corner.br { bottom: 18px; right: 20px; text-align: right; transform: rotate(180deg); }
     .result-score-wrap {
       display: flex;
       justify-content: center;
-      margin: 12px 0 28px;
+      margin: 8px 0 20px;
     }
-    .result-dial {
-      position: relative;
-      width: 140px;
-      height: 140px;
-    }
+    .result-dial { width: 120px; height: 120px; }
     .dial-svg { width: 100%; height: 100%; }
     .result-divider {
-      width: 40px;
-      height: 1px;
+      width: 32px; height: 1px;
       background: var(--light);
-      margin: 0 auto 24px;
+      margin: 0 auto 18px;
     }
     .result-title {
       font-family: 'DM Serif Display', serif;
-      font-size: 22px;
+      font-size: 20px;
       line-height: 1.25;
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       color: var(--black);
     }
     .result-body {
       color: var(--mid);
-      font-size: 14px;
+      font-size: 13px;
       line-height: 1.7;
-      margin-bottom: 28px;
+      margin-bottom: 22px;
     }
-    .result-card .btn {
+    .result-card .btn-filled {
       width: 100%;
       text-align: center;
-      justify-content: center;
+      display: block;
+      font-size: 13px;
+      padding: 14px 16px;
     }
     .quiz-restart {
       display: block;
-      margin: 14px auto 0;
+      margin: 12px auto 0;
       background: none;
       border: none;
       color: var(--mid);
-      font-size: 13px;
+      font-size: 12px;
       cursor: pointer;
       text-decoration: underline;
+    }
+
+    /* expanded bg card overlay */
+    .bg-card-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+      z-index: 100;
+      align-items: center;
+      justify-content: center;
+    }
+    .bg-card-overlay.open { display: flex; }
+    .bg-card-expanded {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 48px 40px 40px;
+      width: 360px;
+      max-width: 90vw;
+      position: relative;
+      text-align: center;
+      animation: fadeUp 0.25s ease;
+    }
+    .bg-card-close {
+      position: absolute;
+      top: 16px; right: 18px;
+      background: none; border: none;
+      font-size: 18px; color: var(--mid);
+      cursor: pointer;
     }
 
     .quiz-trigger {
@@ -1180,21 +1278,21 @@
 
   <script>
     (function() {
-      const questions = document.querySelectorAll('.quiz-q');
-      const resultEl  = document.getElementById('quizResult');
+      const questions   = document.querySelectorAll('.quiz-q');
+      const resultEl    = document.getElementById('quizResult');
       const questionsEl = document.getElementById('quizQuestions');
-      const dialArc   = document.getElementById('dialArc');
-      const dialPct   = document.getElementById('dialPct');
-      const dialWord  = document.getElementById('dialWord');
-      const cornerPct  = document.getElementById('cornerPct');
-      const cornerWord = document.getElementById('cornerWord');
+      const dialArc     = document.getElementById('dialArc');
+      const dialPct     = document.getElementById('dialPct');
+      const dialWord    = document.getElementById('dialWord');
+      const cornerPct   = document.getElementById('cornerPct');
+      const cornerWord  = document.getElementById('cornerWord');
       const cornerPct2  = document.getElementById('cornerPct2');
       const cornerWord2 = document.getElementById('cornerWord2');
       const resultTitle = document.getElementById('resultTitle');
       const resultBody  = document.getElementById('resultBody');
-      const resultCTA   = document.getElementById('resultCTA');
+      const overlay     = document.getElementById('bgCardOverlay');
 
-      const quizTrigger  = document.getElementById('quizTrigger');
+      const quizTrigger   = document.getElementById('quizTrigger');
       const quizContainer = document.getElementById('quizContainer');
       document.getElementById('startQuiz').addEventListener('click', function() {
         quizTrigger.hidden = true;
@@ -1210,29 +1308,25 @@
           min: 0, max: 39,
           pct: 25, word: 'Blurry',
           title: 'Your story is still forming.',
-          body: 'That\'s completely normal - most early-stage products start here. The risk is spending months building before anyone really understands what you\'re building or why it matters. A Foundation Sprint helps you get clear fast, so the next conversation lands differently.',
-          cta: 'Book a free discovery call →'
+          body: 'That\'s completely normal - most early-stage products start here. The risk is spending months building before anyone really understands what you\'re building or why it matters. A Foundation Sprint helps you get clear fast, so the next conversation lands differently.'
         },
         {
           min: 40, max: 59,
           pct: 50, word: 'Getting there',
           title: 'The shape is there. It needs sharpening.',
-          body: 'You have a real product and real instincts about who it\'s for. But there\'s still friction in how it comes across - in the pitch, in the team, in the messaging. One focused session could close the gap significantly.',
-          cta: 'Let\'s close that gap →'
+          body: 'You have a real product and real instincts about who it\'s for. But there\'s still friction in how it comes across - in the pitch, in the team, in the messaging. One focused session could close the gap significantly.'
         },
         {
           min: 60, max: 79,
           pct: 70, word: 'Almost sharp',
           title: 'You\'re close. Small tweaks, big impact.',
-          body: 'Your value proposition is mostly there, but something isn\'t quite clicking yet - maybe the story, maybe the positioning against alternatives, maybe the team alignment. A sharp outside eye could surface exactly what\'s holding it back.',
-          cta: 'Find out what\'s missing →'
+          body: 'Your value proposition is mostly there, but something isn\'t quite clicking yet - maybe the story, maybe the positioning against alternatives, maybe the team alignment. A sharp outside eye could surface exactly what\'s holding it back.'
         },
         {
           min: 80, max: 100,
           pct: 90, word: 'Sharp',
           title: 'You\'re in good shape.',
-          body: 'Your proposition is clear, your team is aligned, and your story lands. The question is whether it stays sharp as you grow - new markets, new team members, new competition. A quick review never hurts.',
-          cta: 'Book a call anyway →'
+          body: 'Your proposition is clear, your team is aligned, and your story lands. The question is whether it stays sharp as you grow - new markets, new team members, new competition. A quick review never hurts.'
         }
       ];
 
@@ -1246,11 +1340,12 @@
         const total = scores.reduce((a, b) => a + b, 0);
         const max   = questions.length * 4;
         const pct   = Math.round((total / max) * 100);
+        const outcomeIdx = outcomes.findIndex(o => pct >= o.min && pct <= o.max);
+        const outcome = outcomes[outcomeIdx !== -1 ? outcomeIdx : outcomes.length - 1];
 
-        const outcome = outcomes.find(o => pct >= o.min && pct <= o.max) || outcomes[outcomes.length - 1];
-
+        // hide questions, show result
         questionsEl.hidden = true;
-        resultEl.hidden = false;
+        resultEl.classList.add('visible');
 
         // animate dial
         const offset = CIRCUMFERENCE - (outcome.pct / 100) * CIRCUMFERENCE;
@@ -1265,8 +1360,32 @@
         cornerWord2.textContent = outcome.word;
         resultTitle.textContent = outcome.title;
         resultBody.textContent  = outcome.body;
-        resultCTA.textContent   = outcome.cta;
+
+        // populate the 3 background cards with the OTHER outcomes
+        const others = outcomes.filter((_, i) => i !== (outcomeIdx !== -1 ? outcomeIdx : outcomes.length - 1));
+        document.querySelectorAll('.bg-card').forEach((card, i) => {
+          const o = others[i];
+          card.querySelector('.bg-card-label').textContent = o ? o.word : '';
+          card.dataset.outcomeIdx = outcomes.indexOf(o);
+        });
       }
+
+      // bg card clicks → open overlay
+      document.querySelectorAll('.bg-card').forEach(card => {
+        card.addEventListener('click', function() {
+          const idx = parseInt(this.dataset.outcomeIdx);
+          const o = outcomes[idx];
+          if (!o) return;
+          document.getElementById('ovPct').textContent   = o.pct + '%';
+          document.getElementById('ovWord').textContent  = o.word;
+          document.getElementById('ovTitle').textContent = o.title;
+          document.getElementById('ovBody').textContent  = o.body;
+          overlay.classList.add('open');
+        });
+      });
+
+      document.getElementById('bgCardClose').addEventListener('click', () => overlay.classList.remove('open'));
+      overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('open'); });
 
       // Bind option clicks
       document.querySelectorAll('.quiz-opt').forEach(btn => {
@@ -1274,10 +1393,8 @@
           const qEl = this.closest('.quiz-q');
           qEl.querySelectorAll('.quiz-opt').forEach(b => b.classList.remove('selected'));
           this.classList.add('selected');
-
           const qIndex = parseInt(qEl.dataset.q) - 1;
           scores[qIndex] = parseInt(this.dataset.value);
-
           setTimeout(() => {
             if (current < questions.length - 1) {
               goToQuestion(current + 1);
@@ -1293,9 +1410,7 @@
         scores = [];
         dialArc.style.transition = 'none';
         dialArc.style.strokeDashoffset = CIRCUMFERENCE;
-        cornerPct.textContent = cornerPct2.textContent = '0%';
-        cornerWord.textContent = cornerWord2.textContent = '';
-        resultEl.hidden = true;
+        resultEl.classList.remove('visible');
         questionsEl.hidden = false;
         quizContainer.hidden = true;
         quizTrigger.hidden = false;
