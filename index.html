@@ -649,7 +649,11 @@
         <p class="quiz-subtitle">8 questions. 2 minutes. Find out where you actually stand.</p>
       </div>
 
-      <div class="quiz-container">
+      <div class="quiz-trigger" id="quizTrigger">
+        <button class="btn btn-filled" id="startQuiz">Take the free quiz →</button>
+      </div>
+
+      <div class="quiz-container" id="quizContainer" hidden>
         <!-- QUESTIONS -->
         <div class="quiz-questions" id="quizQuestions">
 
@@ -783,6 +787,7 @@
       </div><!-- /quiz-container -->
     </div>
   </section>
+
 
   <!-- CHALLENGES → GAINS -->
   <section class="challenges" id="challenges">
@@ -1162,6 +1167,12 @@
       text-decoration: underline;
     }
 
+    .quiz-trigger {
+      display: flex;
+      justify-content: center;
+      padding-bottom: 8px;
+    }
+
     @media (max-width: 640px) {
       .quiz-inner { padding: 0 24px; }
     }
@@ -1182,6 +1193,13 @@
       const resultTitle = document.getElementById('resultTitle');
       const resultBody  = document.getElementById('resultBody');
       const resultCTA   = document.getElementById('resultCTA');
+
+      const quizTrigger  = document.getElementById('quizTrigger');
+      const quizContainer = document.getElementById('quizContainer');
+      document.getElementById('startQuiz').addEventListener('click', function() {
+        quizTrigger.hidden = true;
+        quizContainer.hidden = false;
+      });
 
       let current = 0;
       let scores  = [];
@@ -1279,6 +1297,8 @@
         cornerWord.textContent = cornerWord2.textContent = '';
         resultEl.hidden = true;
         questionsEl.hidden = false;
+        quizContainer.hidden = true;
+        quizTrigger.hidden = false;
         goToQuestion(0);
       });
     })();
