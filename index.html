@@ -700,18 +700,15 @@
       animation: scroll-logos 28s linear infinite;
     }
     .logo-band:hover .logo-track { animation-play-state: paused; }
-    .logo-track span {
-      font-family: 'Inter', sans-serif;
-      font-size: 13px;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--mid);
-      white-space: nowrap;
-      opacity: 0.7;
-      transition: opacity 0.2s, color 0.2s;
+    .logo-track img {
+      height: 36px;
+      width: auto;
+      opacity: 0.55;
+      filter: grayscale(100%);
+      transition: opacity 0.2s, filter 0.2s;
+      flex-shrink: 0;
     }
-    .logo-track span:hover { opacity: 1; color: var(--black); }
+    .logo-track img:hover { opacity: 1; filter: grayscale(0%); }
     @keyframes scroll-logos {
       0%   { transform: translateX(0); }
       100% { transform: translateX(-50%); }
@@ -761,8 +758,8 @@
   <!-- LOGO BAND -->
   <div class="logo-band">
     <div class="logo-track">
-      <span>Nike</span><span>American Express</span><span>Cathay Pacific</span><span>ING</span><span>BNP Paribas</span><span>BMW</span><span>DHL</span><span>European Commission</span><span>ASML</span><span>La Prairie</span>
-      <span>Nike</span><span>American Express</span><span>Cathay Pacific</span><span>ING</span><span>BNP Paribas</span><span>BMW</span><span>DHL</span><span>European Commission</span><span>ASML</span><span>La Prairie</span>
+      <img src="logos/nike.png" alt="Nike"><img src="logos/amex.png" alt="American Express"><img src="logos/cathay.png" alt="Cathay Pacific"><img src="logos/ing.png" alt="ING"><img src="logos/bnp.png" alt="BNP Paribas"><img src="logos/bmw.png" alt="BMW"><img src="logos/dhl.png" alt="DHL"><img src="logos/eu.png" alt="European Commission"><img src="logos/asml.png" alt="ASML"><img src="logos/laprairie.png" alt="La Prairie">
+      <img src="logos/nike.png" alt="Nike"><img src="logos/amex.png" alt="American Express"><img src="logos/cathay.png" alt="Cathay Pacific"><img src="logos/ing.png" alt="ING"><img src="logos/bnp.png" alt="BNP Paribas"><img src="logos/bmw.png" alt="BMW"><img src="logos/dhl.png" alt="DHL"><img src="logos/eu.png" alt="European Commission"><img src="logos/asml.png" alt="ASML"><img src="logos/laprairie.png" alt="La Prairie">
     </div>
   </div>
 
