@@ -763,11 +763,12 @@
                     stroke-dasharray="326.7" stroke-dashoffset="326.7"
                     stroke-linecap="round" transform="rotate(-90 60 60)"
                     id="dialArc"/>
+                  <text id="dialPct" x="60" y="56" text-anchor="middle" dominant-baseline="middle"
+                    font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#0F0F0F">0%</text>
+                  <text id="dialWord" x="60" y="74" text-anchor="middle" dominant-baseline="middle"
+                    font-family="Inter, sans-serif" font-size="9" font-weight="600" letter-spacing="1.5"
+                    fill="#C8401A" text-transform="uppercase"></text>
                 </svg>
-                <div class="dial-label">
-                  <span class="dial-pct" id="dialPct">0%</span>
-                  <span class="dial-word" id="dialWord">Sharp</span>
-                </div>
               </div>
             </div>
 
@@ -1126,27 +1127,6 @@
       height: 140px;
     }
     .dial-svg { width: 100%; height: 100%; }
-    .dial-label {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-    .dial-pct {
-      font-size: 26px;
-      font-weight: 600;
-      color: var(--black);
-      line-height: 1;
-    }
-    .dial-word {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--accent);
-      margin-top: 4px;
-    }
     .result-divider {
       width: 40px;
       height: 1px;
@@ -1260,7 +1240,7 @@
         setTimeout(() => { dialArc.style.strokeDashoffset = offset; }, 50);
 
         dialPct.textContent    = outcome.pct + '%';
-        dialWord.textContent   = outcome.word;
+        dialWord.textContent   = outcome.word.toUpperCase();
         cornerPct.textContent  = outcome.pct + '%';
         cornerWord.textContent = outcome.word;
         cornerPct2.textContent  = outcome.pct + '%';
