@@ -749,71 +749,54 @@
 
         <!-- RESULT -->
         <div class="quiz-result" id="quizResult">
-          <div class="deck-wrap">
 
-            <!-- background cards (other outcomes) -->
-            <div class="deck-bg-cards" id="deckBgCards">
-              <div class="bg-card" id="bgCard0" data-idx="0">
-                <div class="bg-card-label" id="bgLabel0"></div>
-              </div>
-              <div class="bg-card" id="bgCard1" data-idx="1">
-                <div class="bg-card-label" id="bgLabel1"></div>
-              </div>
-              <div class="bg-card" id="bgCard2" data-idx="2">
-                <div class="bg-card-label" id="bgLabel2"></div>
-              </div>
-            </div>
-
-            <!-- top card: user result -->
-            <div class="result-card" id="topCard">
-              <div class="card-corner tl">
-                <em id="cornerPct">0%</em>
-                <span id="cornerWord"></span>
-              </div>
-              <div class="card-corner br" aria-hidden="true">
-                <em id="cornerPct2">0%</em>
-                <span id="cornerWord2"></span>
-              </div>
-
-              <div class="result-score-wrap">
-                <div class="result-dial">
-                  <svg viewBox="0 0 120 120" class="dial-svg">
-                    <circle cx="60" cy="60" r="52" fill="none" stroke="var(--light)" stroke-width="10"/>
-                    <circle cx="60" cy="60" r="52" fill="none" stroke="var(--accent)" stroke-width="10"
-                      stroke-dasharray="326.7" stroke-dashoffset="326.7"
-                      stroke-linecap="round" transform="rotate(-90 60 60)"
-                      id="dialArc"/>
-                    <text id="dialPct" x="60" y="56" text-anchor="middle" dominant-baseline="middle"
-                      font-family="Inter, sans-serif" font-size="18" font-weight="600" fill="#0F0F0F">0%</text>
-                    <text id="dialWord" x="60" y="74" text-anchor="middle" dominant-baseline="middle"
-                      font-family="Inter, sans-serif" font-size="9" font-weight="600" letter-spacing="1.5"
-                      fill="#C8401A"></text>
-                  </svg>
+          <!-- FAN DECK -->
+          <div class="fan-scene" id="fanScene">
+            <!-- 4 cards, index 0–3; JS sets which is "active" -->
+            <div class="fan-card" id="fanCard0" data-fan="0">
+              <div class="card-corner tl"><em id="fc0pct"></em><span id="fc0word"></span></div>
+              <div class="card-corner br" aria-hidden="true"><em id="fc0pct2"></em><span id="fc0word2"></span></div>
+              <div class="fan-card-body" id="fc0body">
+                <div class="result-score-wrap">
+                  <div class="result-dial">
+                    <svg viewBox="0 0 120 120" class="dial-svg">
+                      <circle cx="60" cy="60" r="52" fill="none" stroke="var(--light)" stroke-width="10"/>
+                      <circle cx="60" cy="60" r="52" fill="none" stroke="var(--accent)" stroke-width="10"
+                        stroke-dasharray="326.7" stroke-dashoffset="326.7" stroke-linecap="round"
+                        transform="rotate(-90 60 60)" id="dialArc"/>
+                      <text id="dialPct" x="60" y="55" text-anchor="middle" dominant-baseline="middle"
+                        font-family="Inter,sans-serif" font-size="18" font-weight="600" fill="#0F0F0F"></text>
+                      <text id="dialWord" x="60" y="73" text-anchor="middle" dominant-baseline="middle"
+                        font-family="Inter,sans-serif" font-size="9" font-weight="600" letter-spacing="1.5" fill="#C8401A"></text>
+                    </svg>
+                  </div>
                 </div>
+                <div class="result-divider"></div>
+                <h3 class="result-title" id="fc0title"></h3>
+                <p class="result-body" id="fc0desc"></p>
+                <a href="https://www.cal.eu/jennykan11/30-min" class="btn btn-filled fan-cta" target="_blank">Book the discovery call — get your Value Proposition sharp →</a>
+                <button class="quiz-restart" id="quizRestart">Retake the quiz</button>
               </div>
-
-              <div class="result-divider"></div>
-              <h3 class="result-title" id="resultTitle"></h3>
-              <p class="result-body" id="resultBody"></p>
-              <a href="https://www.cal.eu/jennykan11/30-min" class="btn btn-filled" target="_blank">Book the discovery call — get your Value Proposition sharp →</a>
-              <button class="quiz-restart" id="quizRestart">Retake the quiz</button>
             </div>
-
-          </div><!-- /deck-wrap -->
-
-          <!-- expanded bg card overlay -->
-          <div class="bg-card-overlay" id="bgCardOverlay">
-            <div class="bg-card-expanded">
-              <button class="bg-card-close" id="bgCardClose">✕</button>
-              <div class="card-corner tl">
-                <em id="ovPct"></em>
-                <span id="ovWord"></span>
-              </div>
-              <div class="result-divider" style="margin-top:48px"></div>
-              <h3 class="result-title" id="ovTitle"></h3>
-              <p class="result-body" id="ovBody"></p>
-              <a href="https://www.cal.eu/jennykan11/30-min" class="btn btn-filled" target="_blank">Book the discovery call →</a>
+            <div class="fan-card" id="fanCard1" data-fan="1">
+              <div class="card-corner tl"><em id="fc1pct"></em><span id="fc1word"></span></div>
+              <div class="card-corner br" aria-hidden="true"><em id="fc1pct2"></em><span id="fc1word2"></span></div>
+              <div class="fan-card-peek" id="fc1peek"></div>
             </div>
+            <div class="fan-card" id="fanCard2" data-fan="2">
+              <div class="card-corner tl"><em id="fc2pct"></em><span id="fc2word"></span></div>
+              <div class="card-corner br" aria-hidden="true"><em id="fc2pct2"></em><span id="fc2word2"></span></div>
+              <div class="fan-card-peek" id="fc2peek"></div>
+            </div>
+            <div class="fan-card" id="fanCard3" data-fan="3">
+              <div class="card-corner tl"><em id="fc3pct"></em><span id="fc3word"></span></div>
+              <div class="card-corner br" aria-hidden="true"><em id="fc3pct2"></em><span id="fc3word2"></span></div>
+              <div class="fan-card-peek" id="fc3peek"></div>
+            </div>
+          </div>
+
+          <div style="text-align:center;margin-top:16px">
+            <p style="font-size:12px;color:var(--mid)">Tap the other cards to explore all outcomes</p>
           </div>
 
         </div>
@@ -1120,149 +1103,103 @@
       font-weight: 500;
     }
 
-    /* RESULT — hidden by default, no display:flex override */
+    /* RESULT */
     .quiz-result { display: none; }
-    .quiz-result.visible { display: block; animation: fadeUp 0.4s ease; }
+    .quiz-result.visible { display: block; }
 
-    /* deck */
-    .deck-wrap {
+    /* FAN */
+    .fan-scene {
       position: relative;
-      width: 340px;
+      width: 300px;
+      height: 460px;
       margin: 0 auto;
-      height: 520px;
+      /* cards pivot from bottom-center */
     }
-    .deck-bg-cards { position: absolute; inset: 0; }
-    .bg-card {
+    .fan-card {
       position: absolute;
-      width: 340px;
+      width: 260px;
+      height: 400px;
       background: var(--white);
       border: 1.5px solid var(--light);
-      border-radius: 20px;
-      height: 480px;
-      top: 0; left: 0;
+      border-radius: 18px;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+      left: 50%; top: 30px;
+      margin-left: -130px;
+      transform-origin: center 500px; /* pivot below card */
+      transition: transform 0.45s cubic-bezier(.34,1.3,.64,1), box-shadow 0.3s ease, z-index 0s;
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      display: flex;
-      align-items: flex-end;
-      padding: 20px 24px;
+      overflow: hidden;
+      padding: 32px 28px 24px;
+      box-sizing: border-box;
     }
-    .bg-card:nth-child(1) { transform: rotate(-6deg) translateY(12px); box-shadow: 0 4px 16px rgba(0,0,0,0.07); z-index: 1; }
-    .bg-card:nth-child(2) { transform: rotate(-3deg) translateY(6px);  box-shadow: 0 4px 16px rgba(0,0,0,0.07); z-index: 2; }
-    .bg-card:nth-child(3) { transform: rotate(4deg)  translateY(8px);  box-shadow: 0 4px 16px rgba(0,0,0,0.07); z-index: 3; }
-    .bg-card:hover { box-shadow: 0 8px 28px rgba(0,0,0,0.13); }
-    .bg-card-label {
-      font-family: 'DM Serif Display', serif;
-      font-size: 13px;
-      color: var(--mid);
-      font-style: italic;
+    /* fan positions — JS toggles active; stacked start = all rotate(0) */
+    .fan-card[data-fan="0"] { z-index: 4; }
+    .fan-card[data-fan="1"] { z-index: 3; }
+    .fan-card[data-fan="2"] { z-index: 2; }
+    .fan-card[data-fan="3"] { z-index: 1; }
+
+    /* fanned (class added by JS) */
+    .fan-card.fanned[data-pos="0"] { transform: rotate(-18deg); box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    .fan-card.fanned[data-pos="1"] { transform: rotate(-6deg);  box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    .fan-card.fanned[data-pos="2"] { transform: rotate(6deg);   box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+    .fan-card.fanned[data-pos="3"] { transform: rotate(18deg);  box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+
+    /* active card lifts up */
+    .fan-card.active {
+      transform: rotate(0deg) translateY(-20px) !important;
+      box-shadow: 0 20px 56px rgba(0,0,0,0.16) !important;
+      cursor: default;
+      z-index: 10 !important;
+    }
+    .fan-card:not(.active):hover {
+      box-shadow: 0 10px 32px rgba(0,0,0,0.14) !important;
     }
 
-    /* top card */
-    .result-card {
-      position: absolute;
-      width: 340px;
-      background: var(--white);
-      border: 1.5px solid var(--light);
-      border-radius: 20px;
-      box-shadow: 0 12px 48px rgba(0,0,0,0.13), 0 2px 8px rgba(0,0,0,0.06);
-      padding: 44px 32px 32px;
-      top: 0; left: 0;
-      z-index: 10;
-      text-align: center;
-    }
-    .card-corner {
-      position: absolute;
-      line-height: 1;
-    }
+    /* card corners */
+    .card-corner { position: absolute; line-height: 1.1; }
     .card-corner em {
-      display: block;
-      font-family: 'DM Serif Display', serif;
-      font-style: normal;
-      font-size: 16px;
-      color: var(--accent);
+      display: block; font-family: 'DM Serif Display', serif;
+      font-style: normal; font-size: 15px; color: var(--accent);
     }
     .card-corner span {
-      display: block;
-      font-family: 'Inter', sans-serif;
-      font-size: 8px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--mid);
-      margin-top: 2px;
+      display: block; font-family: 'Inter', sans-serif;
+      font-size: 8px; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--mid); margin-top: 1px;
     }
-    .card-corner.tl { top: 18px; left: 20px; text-align: left; }
-    .card-corner.br { bottom: 18px; right: 20px; text-align: right; transform: rotate(180deg); }
-    .result-score-wrap {
-      display: flex;
-      justify-content: center;
-      margin: 8px 0 20px;
-    }
-    .result-dial { width: 120px; height: 120px; }
-    .dial-svg { width: 100%; height: 100%; }
-    .result-divider {
-      width: 32px; height: 1px;
-      background: var(--light);
-      margin: 0 auto 18px;
-    }
-    .result-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: 20px;
-      line-height: 1.25;
-      margin-bottom: 12px;
-      color: var(--black);
-    }
-    .result-body {
-      color: var(--mid);
-      font-size: 13px;
-      line-height: 1.7;
-      margin-bottom: 22px;
-    }
-    .result-card .btn-filled {
-      width: 100%;
+    .card-corner.tl { top: 14px; left: 16px; }
+    .card-corner.br { bottom: 14px; right: 16px; transform: rotate(180deg); }
+
+    /* active card body */
+    .fan-card-body { display: none; text-align: center; }
+    .fan-card.active .fan-card-body { display: block; }
+    .fan-card-peek {
+      position: absolute;
+      bottom: 20px; left: 0; right: 0;
       text-align: center;
-      display: block;
-      font-size: 13px;
-      padding: 14px 16px;
+      font-family: 'DM Serif Display', serif;
+      font-size: 13px; font-style: italic;
+      color: var(--mid); opacity: 0.7;
+    }
+    .fan-card.active .fan-card-peek { display: none; }
+
+    /* dial */
+    .result-score-wrap { display: flex; justify-content: center; margin: 16px 0 16px; }
+    .result-dial { width: 110px; height: 110px; }
+    .dial-svg { width: 100%; height: 100%; }
+    .result-divider { width: 32px; height: 1px; background: var(--light); margin: 0 auto 14px; }
+    .result-title {
+      font-family: 'DM Serif Display', serif; font-size: 18px;
+      line-height: 1.25; margin-bottom: 10px; color: var(--black);
+    }
+    .result-body { color: var(--mid); font-size: 12px; line-height: 1.65; margin-bottom: 18px; }
+    .fan-cta {
+      width: 100%; text-align: center; display: block;
+      font-size: 12px; padding: 13px 12px;
     }
     .quiz-restart {
-      display: block;
-      margin: 12px auto 0;
-      background: none;
-      border: none;
-      color: var(--mid);
-      font-size: 12px;
-      cursor: pointer;
-      text-decoration: underline;
-    }
-
-    /* expanded bg card overlay */
-    .bg-card-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-      z-index: 100;
-      align-items: center;
-      justify-content: center;
-    }
-    .bg-card-overlay.open { display: flex; }
-    .bg-card-expanded {
-      background: var(--white);
-      border-radius: 20px;
-      padding: 48px 40px 40px;
-      width: 360px;
-      max-width: 90vw;
-      position: relative;
-      text-align: center;
-      animation: fadeUp 0.25s ease;
-    }
-    .bg-card-close {
-      position: absolute;
-      top: 16px; right: 18px;
-      background: none; border: none;
-      font-size: 18px; color: var(--mid);
-      cursor: pointer;
+      display: block; margin: 10px auto 0;
+      background: none; border: none; color: var(--mid);
+      font-size: 11px; cursor: pointer; text-decoration: underline;
     }
 
     .quiz-trigger {
@@ -1278,57 +1215,87 @@
 
   <script>
     (function() {
-      const questions   = document.querySelectorAll('.quiz-q');
-      const resultEl    = document.getElementById('quizResult');
-      const questionsEl = document.getElementById('quizQuestions');
-      const dialArc     = document.getElementById('dialArc');
-      const dialPct     = document.getElementById('dialPct');
-      const dialWord    = document.getElementById('dialWord');
-      const cornerPct   = document.getElementById('cornerPct');
-      const cornerWord  = document.getElementById('cornerWord');
-      const cornerPct2  = document.getElementById('cornerPct2');
-      const cornerWord2 = document.getElementById('cornerWord2');
-      const resultTitle = document.getElementById('resultTitle');
-      const resultBody  = document.getElementById('resultBody');
-      const overlay     = document.getElementById('bgCardOverlay');
+      const questions    = document.querySelectorAll('.quiz-q');
+      const resultEl     = document.getElementById('quizResult');
+      const questionsEl  = document.getElementById('quizQuestions');
+      const quizTrigger  = document.getElementById('quizTrigger');
+      const quizContainer= document.getElementById('quizContainer');
+      const fanCards     = document.querySelectorAll('.fan-card');
+      const CIRCUMFERENCE = 326.7;
 
-      const quizTrigger   = document.getElementById('quizTrigger');
-      const quizContainer = document.getElementById('quizContainer');
+      /* ── CARD SOUND ── */
+      function playCardSound() {
+        try {
+          const ctx = new (window.AudioContext || window.webkitAudioContext)();
+          const len = Math.floor(ctx.sampleRate * 0.12);
+          const buf = ctx.createBuffer(1, len, ctx.sampleRate);
+          const d   = buf.getChannelData(0);
+          for (let i = 0; i < len; i++) {
+            d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 4) * 0.6;
+          }
+          const src = ctx.createBufferSource();
+          src.buffer = buf;
+          const hp  = ctx.createBiquadFilter();
+          hp.type = 'highpass'; hp.frequency.value = 1800;
+          const lp  = ctx.createBiquadFilter();
+          lp.type = 'lowpass';  lp.frequency.value = 8000;
+          const gain = ctx.createGain();
+          gain.gain.setValueAtTime(1, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.12);
+          src.connect(hp); hp.connect(lp); lp.connect(gain); gain.connect(ctx.destination);
+          src.start();
+        } catch(e) {}
+      }
+
+      /* ── OUTCOMES ── */
+      const outcomes = [
+        { min:0,  max:39,  pct:25, word:'Blurry',       title:'Your story is still forming.',           body:'That\'s completely normal - most early-stage products start here. The risk is spending months building before anyone really understands what you\'re building or why it matters. A Foundation Sprint helps you get clear fast, so the next conversation lands differently.' },
+        { min:40, max:59,  pct:50, word:'Getting there', title:'The shape is there. It needs sharpening.', body:'You have a real product and real instincts about who it\'s for. But there\'s still friction in how it comes across - in the pitch, in the team, in the messaging. One focused session could close the gap significantly.' },
+        { min:60, max:79,  pct:70, word:'Almost sharp',  title:'You\'re close. Small tweaks, big impact.',  body:'Your value proposition is mostly there, but something isn\'t quite clicking yet - maybe the story, maybe the positioning against alternatives, maybe the team alignment. A sharp outside eye could surface exactly what\'s holding it back.' },
+        { min:80, max:100, pct:90, word:'Sharp',         title:'You\'re in good shape.',                 body:'Your proposition is clear, your team is aligned, and your story lands. The question is whether it stays sharp as you grow - new markets, new team members, new competition. A quick review never hurts.' }
+      ];
+
+      /* ── STATE ── */
+      let current = 0, scores = [], activeCard = 0;
+      // cardOrder[i] = outcome index shown on fan card i
+      let cardOrder = [0,1,2,3];
+
+      function fillCard(idx, outcome) {
+        const n = idx;
+        document.getElementById('fc'+n+'pct').textContent  = outcome.pct + '%';
+        document.getElementById('fc'+n+'word').textContent = outcome.word;
+        document.getElementById('fc'+n+'pct2').textContent  = outcome.pct + '%';
+        document.getElementById('fc'+n+'word2').textContent = outcome.word;
+        const peek = document.getElementById('fc'+n+'peek');
+        if (peek) peek.textContent = outcome.word;
+      }
+
+      function setActiveCard(fanIdx) {
+        playCardSound();
+        activeCard = fanIdx;
+        fanCards.forEach((c, i) => {
+          c.classList.remove('active');
+          c.setAttribute('data-pos', i);
+          c.classList.add('fanned');
+        });
+        fanCards[fanIdx].classList.add('active');
+        // fill active card body
+        const o = outcomes[cardOrder[fanIdx]];
+        document.getElementById('fc0title').textContent = o.title;
+        document.getElementById('fc0desc').textContent  = o.body;
+        document.getElementById('dialPct').textContent  = o.pct + '%';
+        document.getElementById('dialWord').textContent = o.word.toUpperCase();
+        const offset = CIRCUMFERENCE - (o.pct / 100) * CIRCUMFERENCE;
+        const arc = document.getElementById('dialArc');
+        arc.style.transition = 'stroke-dashoffset 0.9s ease';
+        setTimeout(() => { arc.style.strokeDashoffset = offset; }, 60);
+      }
+
+      /* ── START QUIZ ── */
       document.getElementById('startQuiz').addEventListener('click', function() {
         quizTrigger.hidden = true;
         quizContainer.hidden = false;
       });
-
-      let current = 0;
-      let scores  = [];
-      const CIRCUMFERENCE = 326.7;
-
-      const outcomes = [
-        {
-          min: 0, max: 39,
-          pct: 25, word: 'Blurry',
-          title: 'Your story is still forming.',
-          body: 'That\'s completely normal - most early-stage products start here. The risk is spending months building before anyone really understands what you\'re building or why it matters. A Foundation Sprint helps you get clear fast, so the next conversation lands differently.'
-        },
-        {
-          min: 40, max: 59,
-          pct: 50, word: 'Getting there',
-          title: 'The shape is there. It needs sharpening.',
-          body: 'You have a real product and real instincts about who it\'s for. But there\'s still friction in how it comes across - in the pitch, in the team, in the messaging. One focused session could close the gap significantly.'
-        },
-        {
-          min: 60, max: 79,
-          pct: 70, word: 'Almost sharp',
-          title: 'You\'re close. Small tweaks, big impact.',
-          body: 'Your value proposition is mostly there, but something isn\'t quite clicking yet - maybe the story, maybe the positioning against alternatives, maybe the team alignment. A sharp outside eye could surface exactly what\'s holding it back.'
-        },
-        {
-          min: 80, max: 100,
-          pct: 90, word: 'Sharp',
-          title: 'You\'re in good shape.',
-          body: 'Your proposition is clear, your team is aligned, and your story lands. The question is whether it stays sharp as you grow - new markets, new team members, new competition. A quick review never hurts.'
-        }
-      ];
 
       function goToQuestion(index) {
         questions.forEach(q => q.classList.remove('active'));
@@ -1336,80 +1303,82 @@
         current = index;
       }
 
+      /* ── SHOW RESULT ── */
       function showResult() {
-        const total = scores.reduce((a, b) => a + b, 0);
-        const max   = questions.length * 4;
-        const pct   = Math.round((total / max) * 100);
-        const outcomeIdx = outcomes.findIndex(o => pct >= o.min && pct <= o.max);
-        const outcome = outcomes[outcomeIdx !== -1 ? outcomeIdx : outcomes.length - 1];
+        const total = scores.reduce((a,b) => a+b, 0);
+        const pct   = Math.round((total / (questions.length * 4)) * 100);
+        const userIdx = outcomes.findIndex(o => pct >= o.min && pct <= o.max);
+        const ui = userIdx !== -1 ? userIdx : outcomes.length - 1;
 
-        // hide questions, show result
+        // build cardOrder: user result on fan card 0, others on 1-3
+        cardOrder = [ui];
+        outcomes.forEach((_, i) => { if (i !== ui) cardOrder.push(i); });
+
+        // fill all 4 fan cards
+        fanCards.forEach((_, i) => fillCard(i, outcomes[cardOrder[i]]));
+
+        // reveal fan
         questionsEl.hidden = true;
         resultEl.classList.add('visible');
 
-        // animate dial
-        const offset = CIRCUMFERENCE - (outcome.pct / 100) * CIRCUMFERENCE;
-        dialArc.style.transition = 'stroke-dashoffset 1s ease';
-        setTimeout(() => { dialArc.style.strokeDashoffset = offset; }, 50);
-
-        dialPct.textContent    = outcome.pct + '%';
-        dialWord.textContent   = outcome.word.toUpperCase();
-        cornerPct.textContent  = outcome.pct + '%';
-        cornerWord.textContent = outcome.word;
-        cornerPct2.textContent  = outcome.pct + '%';
-        cornerWord2.textContent = outcome.word;
-        resultTitle.textContent = outcome.title;
-        resultBody.textContent  = outcome.body;
-
-        // populate the 3 background cards with the OTHER outcomes
-        const others = outcomes.filter((_, i) => i !== (outcomeIdx !== -1 ? outcomeIdx : outcomes.length - 1));
-        document.querySelectorAll('.bg-card').forEach((card, i) => {
-          const o = others[i];
-          card.querySelector('.bg-card-label').textContent = o ? o.word : '';
-          card.dataset.outcomeIdx = outcomes.indexOf(o);
+        // animate fan spreading with stagger, then set card 0 active
+        fanCards.forEach((c, i) => {
+          c.classList.remove('active','fanned');
+          c.setAttribute('data-pos', i);
+          c.style.transition = 'none';
+          c.style.transform  = 'rotate(0deg)';
         });
+        setTimeout(() => {
+          fanCards.forEach(c => { c.style.transition = ''; c.classList.add('fanned'); });
+          setTimeout(() => {
+            fanCards[0].classList.add('active');
+            fanCards[0].classList.remove('fanned');
+            const o = outcomes[cardOrder[0]];
+            document.getElementById('fc0title').textContent = o.title;
+            document.getElementById('fc0desc').textContent  = o.body;
+            document.getElementById('dialPct').textContent  = o.pct + '%';
+            document.getElementById('dialWord').textContent = o.word.toUpperCase();
+            const arc = document.getElementById('dialArc');
+            arc.style.transition = 'stroke-dashoffset 1s ease';
+            setTimeout(() => { arc.style.strokeDashoffset = CIRCUMFERENCE - (o.pct/100)*CIRCUMFERENCE; }, 60);
+            playCardSound();
+          }, 500);
+        }, 80);
       }
 
-      // bg card clicks → open overlay
-      document.querySelectorAll('.bg-card').forEach(card => {
+      /* ── FAN CARD CLICKS ── */
+      fanCards.forEach((card, i) => {
         card.addEventListener('click', function() {
-          const idx = parseInt(this.dataset.outcomeIdx);
-          const o = outcomes[idx];
-          if (!o) return;
-          document.getElementById('ovPct').textContent   = o.pct + '%';
-          document.getElementById('ovWord').textContent  = o.word;
-          document.getElementById('ovTitle').textContent = o.title;
-          document.getElementById('ovBody').textContent  = o.body;
-          overlay.classList.add('open');
+          if (this.classList.contains('active')) return;
+          // swap: move clicked card to position 0, shift others
+          const clickedOutcomeIdx = cardOrder[i];
+          const newOrder = [clickedOutcomeIdx];
+          cardOrder.forEach((v, j) => { if (j !== i) newOrder.push(v); });
+          cardOrder = newOrder;
+          fanCards.forEach((c, j) => fillCard(j, outcomes[cardOrder[j]]));
+          setActiveCard(0);
         });
       });
 
-      document.getElementById('bgCardClose').addEventListener('click', () => overlay.classList.remove('open'));
-      overlay.addEventListener('click', e => { if (e.target === overlay) overlay.classList.remove('open'); });
-
-      // Bind option clicks
+      /* ── QUESTION CLICKS ── */
       document.querySelectorAll('.quiz-opt').forEach(btn => {
         btn.addEventListener('click', function() {
           const qEl = this.closest('.quiz-q');
           qEl.querySelectorAll('.quiz-opt').forEach(b => b.classList.remove('selected'));
           this.classList.add('selected');
-          const qIndex = parseInt(qEl.dataset.q) - 1;
-          scores[qIndex] = parseInt(this.dataset.value);
+          scores[parseInt(qEl.dataset.q) - 1] = parseInt(this.dataset.value);
           setTimeout(() => {
-            if (current < questions.length - 1) {
-              goToQuestion(current + 1);
-            } else {
-              showResult();
-            }
+            if (current < questions.length - 1) goToQuestion(current + 1);
+            else showResult();
           }, 300);
         });
       });
 
-      // Restart
+      /* ── RESTART ── */
       document.getElementById('quizRestart').addEventListener('click', function() {
-        scores = [];
-        dialArc.style.transition = 'none';
-        dialArc.style.strokeDashoffset = CIRCUMFERENCE;
+        scores = []; current = 0;
+        document.getElementById('dialArc').style.transition = 'none';
+        document.getElementById('dialArc').style.strokeDashoffset = CIRCUMFERENCE;
         resultEl.classList.remove('visible');
         questionsEl.hidden = false;
         quizContainer.hidden = true;
