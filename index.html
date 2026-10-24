@@ -773,18 +773,6 @@
                   <div class="result-divider"></div>
                   <h3 class="result-title" id="fc0title"></h3>
                   <p class="result-body" id="fc0desc"></p>
-                  <a href="https://www.cal.eu/jennykan11/30-min" class="btn btn-filled fan-cta" target="_blank">Book the discovery call — get your Value Proposition sharp →</a>
-                  <div class="share-row">
-                    <button class="share-btn" id="shareCopy" title="Copy link">
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-                      Copy link
-                    </button>
-                    <button class="share-btn" id="shareEmail" title="Share via email">
-                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                      Email
-                    </button>
-                  </div>
-                  <button class="quiz-restart" id="quizRestart">Retake the quiz</button>
                 </div>
               </div>
               <div class="fan-card" id="fanCard1" data-fan="1">
@@ -802,6 +790,22 @@
             </div>
           </div>
           <p class="fan-hint">Tap the other cards to explore all outcomes</p>
+
+          <!-- ACTIONS — always visible below the fan -->
+          <div class="result-actions">
+            <a href="https://www.cal.eu/jennykan11/30-min" class="btn btn-filled fan-cta" target="_blank">Book the discovery call — get your Value Proposition sharp →</a>
+            <div class="share-row">
+              <button class="share-btn" id="shareCopy" title="Copy link">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                Copy link
+              </button>
+              <button class="share-btn" id="shareEmail" title="Share via email">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                Email
+              </button>
+            </div>
+            <button class="quiz-restart" id="quizRestart">Retake the quiz</button>
+          </div>
 
         </div>
 
@@ -1151,7 +1155,6 @@
       transform: translateY(-28px) !important;
       box-shadow: 0 18px 52px rgba(0,0,0,0.15) !important;
       cursor: default; z-index: 10 !important;
-      overflow-y: auto;
     }
     .fan-card:not(.active):hover { box-shadow: 0 10px 30px rgba(0,0,0,0.13); }
 
@@ -1191,7 +1194,7 @@
     .result-body { color: var(--mid); font-size: 12px; line-height: 1.6; margin-bottom: 16px; }
     .fan-cta {
       width: 100%; text-align: center; display: block;
-      font-size: 11.5px; padding: 12px 10px; line-height: 1.4;
+      font-size: 13px; padding: 14px 16px; line-height: 1.4; margin-bottom: 12px;
     }
     /* share */
     .share-row {
@@ -1212,6 +1215,7 @@
       font-size: 11px; cursor: pointer; text-decoration: underline;
     }
     .fan-hint { text-align: center; font-size: 12px; color: var(--mid); margin-top: 8px; }
+    .result-actions { max-width: 300px; margin: 20px auto 0; text-align: center; }
 
     .quiz-trigger {
       display: flex;
