@@ -856,6 +856,393 @@
     </div>
   </section>
 
+  <!-- QUIZ -->
+  <section class="quiz-section" id="quiz">
+    <div class="quiz-inner">
+      <div class="quiz-header">
+        <span class="section-label">FREE DIAGNOSIS</span>
+        <h2 class="display">How sharp is your<br><em>Value Proposition?</em></h2>
+        <p class="quiz-subtitle">8 questions. 2 minutes. Find out where you actually stand.</p>
+      </div>
+
+      <div class="quiz-container">
+        <!-- QUESTIONS -->
+        <div class="quiz-questions" id="quizQuestions">
+
+          <div class="quiz-q active" data-q="1">
+            <div class="quiz-progress"><span id="qNum">1</span> / 8</div>
+            <h3>Can you explain what your product does in one sentence — without using the word "platform"?</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-value="4">Yes, easily</button>
+              <button class="quiz-opt" data-value="3">Mostly, but it feels a bit long</button>
+              <button class="quiz-opt" data-value="2">It depends on who I'm talking to</button>
+              <button class="quiz-opt" data-value="1">Not really, it always comes out different</button>
+            </div>
+          </div>
+
+          <div class="quiz-q" data-q="2">
+            <div class="quiz-progress"><span>2</span> / 8</div>
+            <h3>Do you know exactly who your best customer is - job title, company size, situation?</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-value="4">Yes, we have a very clear profile</button>
+              <button class="quiz-opt" data-value="3">We have a rough idea but it's broad</button>
+              <button class="quiz-opt" data-value="2">We're targeting multiple segments</button>
+              <button class="quiz-opt" data-value="1">Not really, we want to stay open</button>
+            </div>
+          </div>
+
+          <div class="quiz-q" data-q="3">
+            <div class="quiz-progress"><span>3</span> / 8</div>
+            <h3>Can you describe the specific pain your customer feels before they find you?</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-value="4">Yes, in their exact words</button>
+              <button class="quiz-opt" data-value="3">In general terms, yes</button>
+              <button class="quiz-opt" data-value="2">We assume we know, but haven't validated it</button>
+              <button class="quiz-opt" data-value="1">We focus more on the solution than the problem</button>
+            </div>
+          </div>
+
+          <div class="quiz-q" data-q="4">
+            <div class="quiz-progress"><span>4</span> / 8</div>
+            <h3>Do you know what your customer does instead of using you?</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-value="4">Yes, and we know exactly why we win against it</button>
+              <button class="quiz-opt" data-value="3">We know the main competitors</button>
+              <button class="quiz-opt" data-value="2">We know some, but not the full picture</button>
+              <button class="quiz-opt" data-value="1">We don't really focus on alternatives</button>
+            </div>
+          </div>
+
+          <div class="quiz-q" data-q="5">
+            <div class="quiz-progress"><span>5</span> / 8</div>
+            <h3>Do you have a customer who gets dramatically more value than others - and do you know why?</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-value="4">Yes, and it shapes how we sell</button>
+              <button class="quiz-opt" data-value="3">We have strong customers but haven't analysed the pattern</button>
+              <button class="quiz-opt" data-value="2">We treat all customers more or less the same</button>
+              <button class="quiz-opt" data-value="1">Not yet, we're still early</button>
+            </div>
+          </div>
+
+          <div class="quiz-q" data-q="6">
+            <div class="quiz-progress"><span>6</span> / 8</div>
+            <h3>When you pitch, do people lean in — or nod politely?</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-value="4">They lean in and ask sharp follow-up questions</button>
+              <button class="quiz-opt" data-value="3">Mixed - some get it immediately, others don't</button>
+              <button class="quiz-opt" data-value="2">Mostly polite nodding, then silence</button>
+              <button class="quiz-opt" data-value="1">We get a lot of "interesting" and not much else</button>
+            </div>
+          </div>
+
+          <div class="quiz-q" data-q="7">
+            <div class="quiz-progress"><span>7</span> / 8</div>
+            <h3>Would your co-founder or colleague describe your product the same way you just did?</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-value="4">Almost word for word</button>
+              <button class="quiz-opt" data-value="3">Similar, but with different emphasis</button>
+              <button class="quiz-opt" data-value="2">Probably a different angle</button>
+              <button class="quiz-opt" data-value="1">I honestly don't know</button>
+            </div>
+          </div>
+
+          <div class="quiz-q" data-q="8">
+            <div class="quiz-progress"><span>8</span> / 8</div>
+            <h3>If your product disappeared tomorrow, would your best customers be truly stuck?</h3>
+            <div class="quiz-options">
+              <button class="quiz-opt" data-value="4">Yes - they'd have a real problem</button>
+              <button class="quiz-opt" data-value="3">They'd be annoyed but would find something else</button>
+              <button class="quiz-opt" data-value="2">Probably not - there are alternatives</button>
+              <button class="quiz-opt" data-value="1">I'm not sure they'd even notice immediately</button>
+            </div>
+          </div>
+
+        </div><!-- /quiz-questions -->
+
+        <!-- RESULT -->
+        <div class="quiz-result" id="quizResult" hidden>
+          <div class="result-score-wrap">
+            <div class="result-dial">
+              <svg viewBox="0 0 120 120" class="dial-svg">
+                <circle cx="60" cy="60" r="52" fill="none" stroke="var(--light)" stroke-width="10"/>
+                <circle cx="60" cy="60" r="52" fill="none" stroke="var(--accent)" stroke-width="10"
+                  stroke-dasharray="326.7" stroke-dashoffset="326.7"
+                  stroke-linecap="round" transform="rotate(-90 60 60)"
+                  id="dialArc"/>
+              </svg>
+              <div class="dial-label">
+                <span class="dial-pct" id="dialPct">0%</span>
+                <span class="dial-word" id="dialWord">Sharp</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="result-content">
+            <h3 class="result-title display" id="resultTitle"></h3>
+            <p class="result-body" id="resultBody"></p>
+            <a href="https://www.cal.eu/jennykan11/30-min" class="btn btn-filled" target="_blank" id="resultCTA"></a>
+            <button class="quiz-restart" id="quizRestart">Retake the quiz</button>
+          </div>
+        </div>
+
+      </div><!-- /quiz-container -->
+    </div>
+  </section>
+
+  <style>
+    .quiz-section {
+      background: var(--white);
+      border-top: 1px solid var(--light);
+      border-bottom: 1px solid var(--light);
+    }
+    .quiz-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 64px;
+    }
+    .quiz-header {
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .quiz-header h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 4vw, 56px);
+      line-height: 1.1;
+      margin: 16px 0 20px;
+    }
+    .quiz-header h2 em { font-style: italic; color: var(--accent); }
+    .quiz-subtitle {
+      color: var(--mid);
+      font-size: 18px;
+    }
+    .quiz-container {
+      position: relative;
+      min-height: 300px;
+    }
+    .quiz-q {
+      display: none;
+      animation: fadeUp 0.3s ease;
+    }
+    .quiz-q.active { display: block; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .quiz-progress {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .quiz-q h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(22px, 2.8vw, 32px);
+      line-height: 1.25;
+      margin-bottom: 36px;
+      color: var(--black);
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .quiz-opt {
+      background: var(--bg);
+      border: 1.5px solid var(--light);
+      border-radius: 4px;
+      padding: 16px 20px;
+      text-align: left;
+      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      color: var(--black);
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .quiz-opt:hover {
+      border-color: var(--accent);
+      background: var(--accent-light);
+    }
+    .quiz-opt.selected {
+      border-color: var(--accent);
+      background: var(--accent-light);
+      font-weight: 500;
+    }
+
+    /* RESULT */
+    .quiz-result {
+      text-align: center;
+      animation: fadeUp 0.4s ease;
+    }
+    .result-score-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .result-dial {
+      position: relative;
+      width: 160px;
+      height: 160px;
+    }
+    .dial-svg { width: 100%; height: 100%; }
+    .dial-label {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .dial-pct {
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--black);
+      line-height: 1;
+    }
+    .dial-word {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+    .result-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(28px, 3vw, 42px);
+      margin-bottom: 20px;
+      color: var(--black);
+    }
+    .result-body {
+      color: var(--mid);
+      font-size: 17px;
+      line-height: 1.7;
+      max-width: 520px;
+      margin: 0 auto 32px;
+    }
+    .quiz-restart {
+      display: block;
+      margin: 16px auto 0;
+      background: none;
+      border: none;
+      color: var(--mid);
+      font-size: 14px;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 640px) {
+      .quiz-inner { padding: 0 24px; }
+    }
+  </style>
+
+  <script>
+    (function() {
+      const questions = document.querySelectorAll('.quiz-q');
+      const resultEl  = document.getElementById('quizResult');
+      const questionsEl = document.getElementById('quizQuestions');
+      const dialArc   = document.getElementById('dialArc');
+      const dialPct   = document.getElementById('dialPct');
+      const dialWord  = document.getElementById('dialWord');
+      const resultTitle = document.getElementById('resultTitle');
+      const resultBody  = document.getElementById('resultBody');
+      const resultCTA   = document.getElementById('resultCTA');
+
+      let current = 0;
+      let scores  = [];
+      const CIRCUMFERENCE = 326.7;
+
+      const outcomes = [
+        {
+          min: 0, max: 39,
+          pct: 25, word: 'Blurry',
+          title: 'Your story is still forming.',
+          body: 'That\'s completely normal - most early-stage products start here. The risk is spending months building before anyone really understands what you\'re building or why it matters. A Foundation Sprint helps you get clear fast, so the next conversation lands differently.',
+          cta: 'Book a free discovery call →'
+        },
+        {
+          min: 40, max: 59,
+          pct: 50, word: 'Getting there',
+          title: 'The shape is there. It needs sharpening.',
+          body: 'You have a real product and real instincts about who it\'s for. But there\'s still friction in how it comes across - in the pitch, in the team, in the messaging. One focused session could close the gap significantly.',
+          cta: 'Let\'s close that gap →'
+        },
+        {
+          min: 60, max: 79,
+          pct: 70, word: 'Almost sharp',
+          title: 'You\'re close. Small tweaks, big impact.',
+          body: 'Your value proposition is mostly there, but something isn\'t quite clicking yet - maybe the story, maybe the positioning against alternatives, maybe the team alignment. A sharp outside eye could surface exactly what\'s holding it back.',
+          cta: 'Find out what\'s missing →'
+        },
+        {
+          min: 80, max: 100,
+          pct: 90, word: 'Sharp',
+          title: 'You\'re in good shape.',
+          body: 'Your proposition is clear, your team is aligned, and your story lands. The question is whether it stays sharp as you grow - new markets, new team members, new competition. A quick review never hurts.',
+          cta: 'Book a call anyway →'
+        }
+      ];
+
+      function goToQuestion(index) {
+        questions.forEach(q => q.classList.remove('active'));
+        questions[index].classList.add('active');
+        current = index;
+      }
+
+      function showResult() {
+        const total = scores.reduce((a, b) => a + b, 0);
+        const max   = questions.length * 4;
+        const pct   = Math.round((total / max) * 100);
+
+        const outcome = outcomes.find(o => pct >= o.min && pct <= o.max) || outcomes[outcomes.length - 1];
+
+        questionsEl.hidden = true;
+        resultEl.hidden = false;
+
+        // animate dial
+        const offset = CIRCUMFERENCE - (outcome.pct / 100) * CIRCUMFERENCE;
+        dialArc.style.transition = 'stroke-dashoffset 1s ease';
+        setTimeout(() => { dialArc.style.strokeDashoffset = offset; }, 50);
+
+        dialPct.textContent   = outcome.pct + '%';
+        dialWord.textContent  = outcome.word;
+        resultTitle.textContent = outcome.title;
+        resultBody.textContent  = outcome.body;
+        resultCTA.textContent   = outcome.cta;
+      }
+
+      // Bind option clicks
+      document.querySelectorAll('.quiz-opt').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const qEl = this.closest('.quiz-q');
+          qEl.querySelectorAll('.quiz-opt').forEach(b => b.classList.remove('selected'));
+          this.classList.add('selected');
+
+          const qIndex = parseInt(qEl.dataset.q) - 1;
+          scores[qIndex] = parseInt(this.dataset.value);
+
+          setTimeout(() => {
+            if (current < questions.length - 1) {
+              goToQuestion(current + 1);
+            } else {
+              showResult();
+            }
+          }, 300);
+        });
+      });
+
+      // Restart
+      document.getElementById('quizRestart').addEventListener('click', function() {
+        scores = [];
+        dialArc.style.transition = 'none';
+        dialArc.style.strokeDashoffset = CIRCUMFERENCE;
+        resultEl.hidden = true;
+        questionsEl.hidden = false;
+        goToQuestion(0);
+      });
+    })();
+  </script>
+
   <!-- CTA BANNER -->
   <div class="cta-banner">
     <div class="cta-banner-inner">
