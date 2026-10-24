@@ -45,164 +45,133 @@
       font-family: 'Inter', sans-serif; font-weight: 600; font-size: 15px;
       letter-spacing: -0.01em; color: var(--black); text-decoration: none;
     }
-    .nav-logo sup {
-      font-size: 9px; color: var(--accent); font-weight: 600;
-      letter-spacing: 0.05em; text-transform: uppercase; margin-left: 2px;
-    }
+    .nav-logo sup { font-size: 9px; color: var(--accent); font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-left: 2px; }
     .nav-links { display: flex; align-items: center; gap: 40px; }
-    .nav-links a {
-      text-decoration: none; color: var(--mid); font-size: 14px;
-      font-weight: 400; letter-spacing: 0.01em; transition: color 0.2s;
-    }
+    .nav-links a { text-decoration: none; color: var(--mid); font-size: 14px; font-weight: 400; letter-spacing: 0.01em; transition: color 0.2s; }
     .nav-links a:hover { color: var(--black); }
     .nav-links a.active { color: var(--black); font-weight: 500; }
-    .nav-cta {
-      font-size: 13px !important; font-weight: 600 !important;
-      color: var(--black) !important; border-bottom: 1.5px solid var(--black); padding-bottom: 1px;
-    }
+    .nav-cta { font-size: 13px !important; font-weight: 600 !important; color: var(--black) !important; border-bottom: 1.5px solid var(--black); padding-bottom: 1px; }
 
     .container { max-width: 1160px; margin: 0 auto; padding: 0 64px; }
+    section { padding: 96px 0; }
 
-    .eyebrow {
-      font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--accent); margin-bottom: 24px;
-    }
+    .eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 24px; }
 
     /* HERO */
-    .about-hero {
-      padding: 80px 0 72px;
-      border-bottom: 1px solid var(--light);
+    .about-hero { padding: 80px 0; border-bottom: 1px solid var(--light); }
+    .about-headline {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(36px, 4.5vw, 60px);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 56px;
     }
-    .about-hero-inner {
+    .about-bio-grid {
       display: grid;
-      grid-template-columns: 400px 1fr;
-      gap: 80px;
+      grid-template-columns: 300px 1fr;
+      gap: 72px;
       align-items: start;
     }
     .about-photo {
-      width: 100%;
-      border-radius: 12px;
-      display: block;
-      object-fit: cover;
-      aspect-ratio: 4/5;
+      width: 100%; border-radius: 10px; display: block;
+      object-fit: cover; aspect-ratio: 4/5;
     }
-    .about-text { padding-top: 8px; }
-    .about-name {
+    .about-bio-right {}
+    .about-bio-name {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(42px, 5vw, 68px);
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      margin-bottom: 6px;
+      font-size: 26px; margin-bottom: 20px;
     }
-    .about-name em { font-style: italic; color: var(--accent); }
-    .about-role {
-      font-size: 14px; font-weight: 500; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--mid); margin-bottom: 40px;
+    .about-bio-body {
+      font-size: 16px; color: var(--mid); line-height: 1.75; margin-bottom: 16px;
     }
-    .about-bio {
-      font-size: 17px; color: var(--mid); line-height: 1.75;
-      font-weight: 300; margin-bottom: 20px; max-width: 560px;
-    }
-    .about-bio strong { color: var(--black); font-weight: 600; }
-    .about-bio a { color: var(--accent); text-decoration: none; }
-    .about-bio a:hover { text-decoration: underline; }
+    .about-bio-body strong { color: var(--black); font-weight: 600; }
 
+    /* WHAT I DO — stages */
+    .stages-section { padding: 96px 0; border-top: 1px solid var(--light); }
+    .stages-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(28px, 3vw, 40px);
+      margin-bottom: 48px;
+    }
+    .stages-track {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0;
+    }
+    /* connecting line */
+    .stages-track::before {
+      content: '';
+      position: absolute;
+      top: 7px;
+      left: 7px;
+      right: 7px;
+      height: 1px;
+      background: var(--light);
+      z-index: 0;
+    }
+    .stage { position: relative; padding-right: 24px; }
+    .stage-dot {
+      width: 15px; height: 15px;
+      border-radius: 50%;
+      border: 2px solid var(--light);
+      background: var(--bg);
+      position: relative; z-index: 1;
+      margin-bottom: 20px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .stage:first-child .stage-dot {
+      border-color: var(--accent);
+      background: var(--accent);
+    }
+    .stage-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 13px; font-weight: 600;
+      line-height: 1.35;
+      color: var(--black);
+      margin-bottom: 14px;
+    }
+    .stage-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .stage-list li { font-size: 13px; color: var(--mid); line-height: 1.4; }
+
+    /* CTA */
+    .about-cta-section {
+      padding: 80px 0;
+      border-top: 1px solid var(--light);
+    }
+    .about-cta-section h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(28px, 3vw, 44px);
+      line-height: 1.2;
+      margin-bottom: 32px;
+    }
     .btn-filled {
       display: inline-block; background: var(--black); color: var(--white);
       font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 500;
       padding: 14px 28px; border-radius: 6px; text-decoration: none;
-      letter-spacing: 0.01em; transition: opacity 0.2s; margin-top: 8px;
+      letter-spacing: 0.01em; transition: opacity 0.2s;
     }
     .btn-filled:hover { opacity: 0.8; }
-
-    /* CLIENTS */
-    .clients-section { padding: 72px 0; border-bottom: 1px solid var(--light); }
-    .clients-label {
-      font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
-      text-transform: uppercase; color: var(--mid); margin-bottom: 20px;
-    }
-    .clients-list {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(22px, 2.5vw, 30px);
-      color: var(--black);
-      line-height: 1.5;
-    }
-    .clients-list em { font-style: italic; color: var(--accent); }
-
-    /* SKILLS */
-    .skills-section { padding: 96px 0; border-bottom: 1px solid var(--light); }
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 48px 64px;
-      margin-top: 48px;
-    }
-    .skill-group {}
-    .skill-group-title {
-      font-family: 'Inter', sans-serif; font-size: 13px;
-      font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--black); margin-bottom: 16px;
-      padding-bottom: 12px; border-bottom: 1px solid var(--light);
-    }
-    .skill-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
-    .skill-list li {
-      font-size: 14px; color: var(--mid); padding-left: 14px; position: relative;
-    }
-    .skill-list li::before {
-      content: '·'; position: absolute; left: 0; color: var(--accent);
-    }
-
-    /* VENTURES */
-    .ventures-section { padding: 96px 0; border-bottom: 1px solid var(--light); }
-    .ventures-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 32px; margin-top: 48px;
-    }
-    .venture-card {
-      background: var(--white); border: 1px solid var(--light);
-      border-radius: 10px; padding: 28px 24px;
-    }
-    .venture-name {
-      font-family: 'DM Serif Display', serif; font-size: 20px;
-      margin-bottom: 8px;
-    }
-    .venture-desc { font-size: 14px; color: var(--mid); line-height: 1.65; }
-
-    /* CTA */
-    .about-cta {
-      padding: 96px 0;
-      text-align: center;
-    }
-    .about-cta h2 {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(32px, 3.5vw, 50px);
-      line-height: 1.15; margin-bottom: 20px;
-    }
-    .about-cta h2 em { font-style: italic; color: var(--accent); }
-    .about-cta p { font-size: 17px; color: var(--mid); margin-bottom: 36px; }
 
     /* FOOTER */
     footer {
       border-top: 1px solid var(--light); padding: 40px 64px;
       display: flex; align-items: center; justify-content: space-between;
     }
-    .footer-logo {
-      font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px;
-      color: var(--black); text-decoration: none;
-    }
+    .footer-logo { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; color: var(--black); text-decoration: none; }
     .footer-copy { font-size: 13px; color: var(--mid); }
 
     @media (max-width: 900px) {
       nav { padding: 0 24px; }
       .container { padding: 0 24px; }
-      .about-hero-inner { grid-template-columns: 1fr; gap: 36px; }
-      .about-photo { aspect-ratio: 3/2; max-height: 340px; }
-      .skills-grid { grid-template-columns: 1fr 1fr; }
-      .ventures-grid { grid-template-columns: 1fr; }
+      .about-bio-grid { grid-template-columns: 1fr; gap: 36px; }
+      .about-photo { aspect-ratio: 3/2; max-height: 320px; }
+      .stages-track { grid-template-columns: 1fr 1fr; gap: 40px; }
+      .stages-track::before { display: none; }
       footer { flex-direction: column; gap: 12px; text-align: center; padding: 32px 24px; }
     }
     @media (max-width: 600px) {
-      .skills-grid { grid-template-columns: 1fr; }
+      .stages-track { grid-template-columns: 1fr; }
       .nav-links { gap: 20px; }
     }
   </style>
@@ -219,77 +188,70 @@
     </div>
   </nav>
 
-  <!-- ABOUT HERO -->
+  <!-- HERO BIO -->
   <section class="about-hero">
     <div class="container">
-      <div class="about-hero-inner">
+      <h1 class="about-headline">Strategy, leadership and the initiative to build.</h1>
+      <div class="about-bio-grid">
         <img src="jenny.jpg" alt="Jenny Kan" class="about-photo" />
-        <div class="about-text">
-          <div class="eyebrow">About</div>
-          <h1 class="about-name">Jenny<br><em>Kan.</em></h1>
-          <p class="about-role">Product Strategy · Experience Design · Innovation</p>
-          <p class="about-bio">I lead product strategy, experience design and innovation. For more than 15 years, I've helped organisations turn complex customer and business challenges into clear product direction, new propositions and tangible outcomes.</p>
-          <p class="about-bio">My focus is connecting customer understanding, business priorities and a product direction teams can test and develop — and then getting into the room with them to make it real.</p>
-          <a href="https://www.cal.eu/jennykan11/30-min" class="btn-filled" target="_blank">Book a free chat →</a>
+        <div class="about-bio-right">
+          <p class="about-bio-name">Hi, I am Jenny.</p>
+          <p class="about-bio-body">I lead <strong>product strategy, experience design and innovation</strong>. I have led multidisciplinary enterprise engagements and built independent products to explore ideas hands-on. For more than 15 years, I've helped organisations turn complex customer and business challenges into clear product direction, new propositions and tangible outcomes. My work has included ServiceNow, Nike, BMW, ASML, Aviva, DHL and the European Commission.</p>
+          <p class="about-bio-body">My focus is connecting customer understanding, business priorities and a product direction teams can test and develop. Alongside my corporate work, I build products, ventures and communities. I co-founded Product Pulse, an online product community with monthly events. I created KnowTheAct, a plain-English EU AI Act guide for consumers, and developed the AI Amplifier Framework to help product teams connect strategy, building and validation. I also served as the Founding President of Amstelveen Toastmasters.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CLIENTS -->
-  <section class="clients-section">
+  <!-- WHAT I DO -->
+  <section class="stages-section">
     <div class="container">
-      <p class="clients-label">Organisations I've worked with</p>
-      <p class="clients-list">ServiceNow · Nike · BMW · ASML · Aviva · DHL · <em>European Commission</em></p>
-    </div>
-  </section>
-
-  <!-- SKILLS -->
-  <section class="skills-section">
-    <div class="container">
-      <div class="eyebrow">What I do</div>
-      <h2 class="display" style="font-size: clamp(32px, 3.5vw, 48px); line-height: 1.1;">Every engagement is built around<br><em class="display-italic">the decision your team needs to make.</em></h2>
-      <div class="skills-grid">
-        <div class="skill-group">
-          <div class="skill-group-title">Design Thinking & AI Strategy</div>
-          <ul class="skill-list">
+      <h2 class="stages-title">What I do:</h2>
+      <div class="stages-track">
+        <div class="stage">
+          <div class="stage-dot"></div>
+          <div class="stage-title">Design Thinking &amp; AI Product Strategy</div>
+          <ul class="stage-list">
             <li>Design Sprints</li>
             <li>Co-Innovation Workshop</li>
-            <li>Design & Facilitation</li>
+            <li>Design &amp; Facilitation</li>
             <li>Foundation Sprint</li>
-            <li>AI Native Product Vision & PRD</li>
+            <li>AI Native Product Vision &amp; PRD</li>
           </ul>
         </div>
-        <div class="skill-group">
-          <div class="skill-group-title">AI Opportunity Mapping</div>
-          <ul class="skill-list">
+        <div class="stage">
+          <div class="stage-dot"></div>
+          <div class="stage-title">AI Opportunity Mapping</div>
+          <ul class="stage-list">
             <li>Service Blue Printing</li>
             <li>User Journey Mapping</li>
-            <li>Identifying Friction Points & AI Opportunities</li>
+            <li>Identifying Friction Point &amp; AI Opportunities</li>
           </ul>
         </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Design & AI Assisted Prototyping</div>
-          <ul class="skill-list">
+        <div class="stage">
+          <div class="stage-dot"></div>
+          <div class="stage-title">Design &amp; AI Assisted Prototyping</div>
+          <ul class="stage-list">
             <li>PRD</li>
             <li>Design</li>
             <li>AI-Assisted Prototyping</li>
             <li>Lovable, Cursor</li>
           </ul>
         </div>
-        <div class="skill-group">
-          <div class="skill-group-title">MVP & GTM Strategy</div>
-          <ul class="skill-list">
+        <div class="stage">
+          <div class="stage-dot"></div>
+          <div class="stage-title">MVP &amp; GTM Strategy</div>
+          <ul class="stage-list">
             <li>Definition MVP</li>
             <li>Definition Success Metrics</li>
             <li>GTM Strategy</li>
           </ul>
         </div>
-        <div class="skill-group">
-          <div class="skill-group-title">Commercial Messaging</div>
-          <ul class="skill-list">
+        <div class="stage">
+          <div class="stage-dot"></div>
+          <div class="stage-title">Commercial Messaging</div>
+          <ul class="stage-list">
             <li>Product Marketing</li>
-            <li>Value Proposition</li>
             <li>Commercial Messaging</li>
           </ul>
         </div>
@@ -297,34 +259,11 @@
     </div>
   </section>
 
-  <!-- VENTURES -->
-  <section class="ventures-section">
-    <div class="container">
-      <div class="eyebrow">Built alongside</div>
-      <h2 class="display" style="font-size: clamp(28px, 3vw, 42px); line-height: 1.15; margin-bottom: 0;">Products, ventures and<br><em class="display-italic">communities I've started.</em></h2>
-      <div class="ventures-grid">
-        <div class="venture-card">
-          <div class="venture-name">Product Pulse</div>
-          <p class="venture-desc">An online product community with monthly events — connecting product people across Europe.</p>
-        </div>
-        <div class="venture-card">
-          <div class="venture-name">KnowTheAct</div>
-          <p class="venture-desc">A plain-English guide to the EU AI Act for consumers — making complex regulation accessible.</p>
-        </div>
-        <div class="venture-card">
-          <div class="venture-name">AI Amplifier Framework</div>
-          <p class="venture-desc">A framework to help product teams connect strategy, building and validation in the age of AI.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- CTA -->
-  <section class="about-cta">
+  <section class="about-cta-section">
     <div class="container">
-      <h2>Ready to sharpen<br><em>your product?</em></h2>
-      <p>30 minutes. No deck required. Just a real conversation about what's next.</p>
-      <a href="https://www.cal.eu/jennykan11/30-min" class="btn-filled" target="_blank">Book a free discovery call →</a>
+      <h2>Do you have a product innovation challenge?<br>I'd love to help.</h2>
+      <a href="https://www.cal.eu/jennykan11/30-min" class="btn-filled" target="_blank">Let's talk →</a>
     </div>
   </section>
 
