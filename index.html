@@ -750,54 +750,58 @@
         <!-- RESULT -->
         <div class="quiz-result" id="quizResult">
 
-          <!-- FAN DECK -->
-          <div class="fan-scene" id="fanScene">
-            <!-- 4 cards, index 0–3; JS sets which is "active" -->
-            <div class="fan-card" id="fanCard0" data-fan="0">
-              <div class="card-corner tl"><em id="fc0pct"></em><span id="fc0word"></span></div>
-              <div class="card-corner br" aria-hidden="true"><em id="fc0pct2"></em><span id="fc0word2"></span></div>
-              <div class="fan-card-body" id="fc0body">
-                <div class="result-score-wrap">
-                  <div class="result-dial">
-                    <svg viewBox="0 0 120 120" class="dial-svg">
-                      <circle cx="60" cy="60" r="52" fill="none" stroke="var(--light)" stroke-width="10"/>
-                      <circle cx="60" cy="60" r="52" fill="none" stroke="var(--accent)" stroke-width="10"
-                        stroke-dasharray="326.7" stroke-dashoffset="326.7" stroke-linecap="round"
-                        transform="rotate(-90 60 60)" id="dialArc"/>
-                      <text id="dialPct" x="60" y="55" text-anchor="middle" dominant-baseline="middle"
-                        font-family="Inter,sans-serif" font-size="18" font-weight="600" fill="#0F0F0F"></text>
-                      <text id="dialWord" x="60" y="73" text-anchor="middle" dominant-baseline="middle"
-                        font-family="Inter,sans-serif" font-size="9" font-weight="600" letter-spacing="1.5" fill="#C8401A"></text>
-                    </svg>
+          <!-- FAN -->
+          <div class="fan-stage">
+            <div class="fan-scene" id="fanScene">
+              <div class="fan-card" id="fanCard0" data-fan="0">
+                <div class="card-corner tl"><em id="fc0pct"></em><span id="fc0word"></span></div>
+                <div class="fc-content" id="fc0content">
+                  <div class="result-score-wrap">
+                    <div class="result-dial">
+                      <svg viewBox="0 0 120 120" class="dial-svg">
+                        <circle cx="60" cy="60" r="52" fill="none" stroke="var(--light)" stroke-width="10"/>
+                        <circle cx="60" cy="60" r="52" fill="none" stroke="var(--accent)" stroke-width="10"
+                          stroke-dasharray="326.7" stroke-dashoffset="326.7" stroke-linecap="round"
+                          transform="rotate(-90 60 60)" id="dialArc"/>
+                        <text id="dialPct" x="60" y="55" text-anchor="middle" dominant-baseline="middle"
+                          font-family="Inter,sans-serif" font-size="18" font-weight="600" fill="#0F0F0F"></text>
+                        <text id="dialWord" x="60" y="73" text-anchor="middle" dominant-baseline="middle"
+                          font-family="Inter,sans-serif" font-size="9" font-weight="600" letter-spacing="1.5" fill="#C8401A"></text>
+                      </svg>
+                    </div>
                   </div>
+                  <div class="result-divider"></div>
+                  <h3 class="result-title" id="fc0title"></h3>
+                  <p class="result-body" id="fc0desc"></p>
+                  <a href="https://www.cal.eu/jennykan11/30-min" class="btn btn-filled fan-cta" target="_blank">Book the discovery call — get your Value Proposition sharp →</a>
+                  <div class="share-row">
+                    <button class="share-btn" id="shareCopy" title="Copy link">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                      Copy link
+                    </button>
+                    <button class="share-btn" id="shareEmail" title="Share via email">
+                      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                      Email
+                    </button>
+                  </div>
+                  <button class="quiz-restart" id="quizRestart">Retake the quiz</button>
                 </div>
-                <div class="result-divider"></div>
-                <h3 class="result-title" id="fc0title"></h3>
-                <p class="result-body" id="fc0desc"></p>
-                <a href="https://www.cal.eu/jennykan11/30-min" class="btn btn-filled fan-cta" target="_blank">Book the discovery call — get your Value Proposition sharp →</a>
-                <button class="quiz-restart" id="quizRestart">Retake the quiz</button>
+              </div>
+              <div class="fan-card" id="fanCard1" data-fan="1">
+                <div class="card-corner tl"><em id="fc1pct"></em><span id="fc1word"></span></div>
+                <div class="fc-peek" id="fc1peek"></div>
+              </div>
+              <div class="fan-card" id="fanCard2" data-fan="2">
+                <div class="card-corner tl"><em id="fc2pct"></em><span id="fc2word"></span></div>
+                <div class="fc-peek" id="fc2peek"></div>
+              </div>
+              <div class="fan-card" id="fanCard3" data-fan="3">
+                <div class="card-corner tl"><em id="fc3pct"></em><span id="fc3word"></span></div>
+                <div class="fc-peek" id="fc3peek"></div>
               </div>
             </div>
-            <div class="fan-card" id="fanCard1" data-fan="1">
-              <div class="card-corner tl"><em id="fc1pct"></em><span id="fc1word"></span></div>
-              <div class="card-corner br" aria-hidden="true"><em id="fc1pct2"></em><span id="fc1word2"></span></div>
-              <div class="fan-card-peek" id="fc1peek"></div>
-            </div>
-            <div class="fan-card" id="fanCard2" data-fan="2">
-              <div class="card-corner tl"><em id="fc2pct"></em><span id="fc2word"></span></div>
-              <div class="card-corner br" aria-hidden="true"><em id="fc2pct2"></em><span id="fc2word2"></span></div>
-              <div class="fan-card-peek" id="fc2peek"></div>
-            </div>
-            <div class="fan-card" id="fanCard3" data-fan="3">
-              <div class="card-corner tl"><em id="fc3pct"></em><span id="fc3word"></span></div>
-              <div class="card-corner br" aria-hidden="true"><em id="fc3pct2"></em><span id="fc3word2"></span></div>
-              <div class="fan-card-peek" id="fc3peek"></div>
-            </div>
           </div>
-
-          <div style="text-align:center;margin-top:16px">
-            <p style="font-size:12px;color:var(--mid)">Tap the other cards to explore all outcomes</p>
-          </div>
+          <p class="fan-hint">Tap the other cards to explore all outcomes</p>
 
         </div>
 
@@ -1107,59 +1111,55 @@
     .quiz-result { display: none; }
     .quiz-result.visible { display: block; }
 
-    /* FAN */
+    /* FAN STAGE — gives space for rotated cards to not clip */
+    .fan-stage {
+      display: flex;
+      justify-content: center;
+      padding: 60px 0 40px;
+      overflow: visible;
+    }
     .fan-scene {
       position: relative;
-      width: 300px;
-      height: 460px;
-      margin: 0 auto;
-      /* cards pivot from bottom-center */
+      width: 260px;
+      height: 420px;
     }
     .fan-card {
       position: absolute;
-      width: 260px;
-      height: 400px;
+      inset: 0;
       background: var(--white);
       border: 1.5px solid var(--light);
       border-radius: 18px;
-      box-shadow: 0 6px 24px rgba(0,0,0,0.10);
-      left: 50%; top: 30px;
-      margin-left: -130px;
-      transform-origin: center 500px; /* pivot below card */
-      transition: transform 0.45s cubic-bezier(.34,1.3,.64,1), box-shadow 0.3s ease, z-index 0s;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.09);
+      transform-origin: center bottom;
+      transition: transform 0.5s cubic-bezier(.34,1.2,.64,1), box-shadow 0.3s ease;
       cursor: pointer;
       overflow: hidden;
-      padding: 32px 28px 24px;
-      box-sizing: border-box;
+      padding: 26px 24px 20px;
     }
-    /* fan positions — JS toggles active; stacked start = all rotate(0) */
+    /* z-order */
     .fan-card[data-fan="0"] { z-index: 4; }
     .fan-card[data-fan="1"] { z-index: 3; }
     .fan-card[data-fan="2"] { z-index: 2; }
     .fan-card[data-fan="3"] { z-index: 1; }
-
-    /* fanned (class added by JS) */
-    .fan-card.fanned[data-pos="0"] { transform: rotate(-18deg); box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
-    .fan-card.fanned[data-pos="1"] { transform: rotate(-6deg);  box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
-    .fan-card.fanned[data-pos="2"] { transform: rotate(6deg);   box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
-    .fan-card.fanned[data-pos="3"] { transform: rotate(18deg);  box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
-
-    /* active card lifts up */
+    /* fanned positions */
+    .fan-card.fanned[data-pos="0"] { transform: rotate(-22deg) translateY(0); }
+    .fan-card.fanned[data-pos="1"] { transform: rotate(-7deg)  translateY(0); }
+    .fan-card.fanned[data-pos="2"] { transform: rotate(7deg)   translateY(0); }
+    .fan-card.fanned[data-pos="3"] { transform: rotate(22deg)  translateY(0); }
+    /* active lifts */
     .fan-card.active {
-      transform: rotate(0deg) translateY(-20px) !important;
-      box-shadow: 0 20px 56px rgba(0,0,0,0.16) !important;
-      cursor: default;
-      z-index: 10 !important;
+      transform: translateY(-28px) !important;
+      box-shadow: 0 18px 52px rgba(0,0,0,0.15) !important;
+      cursor: default; z-index: 10 !important;
+      overflow-y: auto;
     }
-    .fan-card:not(.active):hover {
-      box-shadow: 0 10px 32px rgba(0,0,0,0.14) !important;
-    }
+    .fan-card:not(.active):hover { box-shadow: 0 10px 30px rgba(0,0,0,0.13); }
 
-    /* card corners */
-    .card-corner { position: absolute; line-height: 1.1; }
+    /* corners */
+    .card-corner { position: absolute; line-height: 1.15; }
     .card-corner em {
       display: block; font-family: 'DM Serif Display', serif;
-      font-style: normal; font-size: 15px; color: var(--accent);
+      font-style: normal; font-size: 14px; color: var(--accent);
     }
     .card-corner span {
       display: block; font-family: 'Inter', sans-serif;
@@ -1167,40 +1167,51 @@
       text-transform: uppercase; color: var(--mid); margin-top: 1px;
     }
     .card-corner.tl { top: 14px; left: 16px; }
-    .card-corner.br { bottom: 14px; right: 16px; transform: rotate(180deg); }
 
-    /* active card body */
-    .fan-card-body { display: none; text-align: center; }
-    .fan-card.active .fan-card-body { display: block; }
-    .fan-card-peek {
-      position: absolute;
-      bottom: 20px; left: 0; right: 0;
-      text-align: center;
-      font-family: 'DM Serif Display', serif;
-      font-size: 13px; font-style: italic;
-      color: var(--mid); opacity: 0.7;
+    /* active card content */
+    .fc-content { display: none; text-align: center; }
+    .fan-card.active .fc-content { display: block; }
+    /* peek label on inactive cards */
+    .fc-peek {
+      position: absolute; bottom: 18px; left: 0; right: 0;
+      text-align: center; font-family: 'DM Serif Display', serif;
+      font-size: 12px; font-style: italic; color: var(--mid); opacity: 0.6;
     }
-    .fan-card.active .fan-card-peek { display: none; }
+    .fan-card.active .fc-peek { display: none; }
 
     /* dial */
-    .result-score-wrap { display: flex; justify-content: center; margin: 16px 0 16px; }
-    .result-dial { width: 110px; height: 110px; }
+    .result-score-wrap { display: flex; justify-content: center; margin: 14px 0 14px; }
+    .result-dial { width: 100px; height: 100px; }
     .dial-svg { width: 100%; height: 100%; }
-    .result-divider { width: 32px; height: 1px; background: var(--light); margin: 0 auto 14px; }
+    .result-divider { width: 28px; height: 1px; background: var(--light); margin: 0 auto 12px; }
     .result-title {
-      font-family: 'DM Serif Display', serif; font-size: 18px;
-      line-height: 1.25; margin-bottom: 10px; color: var(--black);
+      font-family: 'DM Serif Display', serif; font-size: 17px;
+      line-height: 1.25; margin-bottom: 8px; color: var(--black);
     }
-    .result-body { color: var(--mid); font-size: 12px; line-height: 1.65; margin-bottom: 18px; }
+    .result-body { color: var(--mid); font-size: 12px; line-height: 1.6; margin-bottom: 16px; }
     .fan-cta {
       width: 100%; text-align: center; display: block;
-      font-size: 12px; padding: 13px 12px;
+      font-size: 11.5px; padding: 12px 10px; line-height: 1.4;
     }
+    /* share */
+    .share-row {
+      display: flex; gap: 8px; justify-content: center; margin: 10px 0 4px;
+    }
+    .share-btn {
+      display: flex; align-items: center; gap: 5px;
+      background: none; border: 1px solid var(--light);
+      border-radius: 4px; padding: 7px 12px;
+      font-family: 'Inter', sans-serif; font-size: 11px;
+      color: var(--mid); cursor: pointer;
+      transition: border-color 0.15s, color 0.15s;
+    }
+    .share-btn:hover { border-color: var(--accent); color: var(--accent); }
     .quiz-restart {
-      display: block; margin: 10px auto 0;
+      display: block; margin: 8px auto 0;
       background: none; border: none; color: var(--mid);
       font-size: 11px; cursor: pointer; text-decoration: underline;
     }
+    .fan-hint { text-align: center; font-size: 12px; color: var(--mid); margin-top: 8px; }
 
     .quiz-trigger {
       display: flex;
@@ -1257,39 +1268,7 @@
 
       /* ── STATE ── */
       let current = 0, scores = [], activeCard = 0;
-      // cardOrder[i] = outcome index shown on fan card i
       let cardOrder = [0,1,2,3];
-
-      function fillCard(idx, outcome) {
-        const n = idx;
-        document.getElementById('fc'+n+'pct').textContent  = outcome.pct + '%';
-        document.getElementById('fc'+n+'word').textContent = outcome.word;
-        document.getElementById('fc'+n+'pct2').textContent  = outcome.pct + '%';
-        document.getElementById('fc'+n+'word2').textContent = outcome.word;
-        const peek = document.getElementById('fc'+n+'peek');
-        if (peek) peek.textContent = outcome.word;
-      }
-
-      function setActiveCard(fanIdx) {
-        playCardSound();
-        activeCard = fanIdx;
-        fanCards.forEach((c, i) => {
-          c.classList.remove('active');
-          c.setAttribute('data-pos', i);
-          c.classList.add('fanned');
-        });
-        fanCards[fanIdx].classList.add('active');
-        // fill active card body
-        const o = outcomes[cardOrder[fanIdx]];
-        document.getElementById('fc0title').textContent = o.title;
-        document.getElementById('fc0desc').textContent  = o.body;
-        document.getElementById('dialPct').textContent  = o.pct + '%';
-        document.getElementById('dialWord').textContent = o.word.toUpperCase();
-        const offset = CIRCUMFERENCE - (o.pct / 100) * CIRCUMFERENCE;
-        const arc = document.getElementById('dialArc');
-        arc.style.transition = 'stroke-dashoffset 0.9s ease';
-        setTimeout(() => { arc.style.strokeDashoffset = offset; }, 60);
-      }
 
       /* ── START QUIZ ── */
       document.getElementById('startQuiz').addEventListener('click', function() {
@@ -1303,61 +1282,96 @@
         current = index;
       }
 
+      /* ── FILL CARD ── */
+      function fillCard(fanIdx, outcome) {
+        document.getElementById('fc'+fanIdx+'pct').textContent  = outcome.pct + '%';
+        document.getElementById('fc'+fanIdx+'word').textContent = outcome.word;
+        const peek = document.getElementById('fc'+fanIdx+'peek');
+        if (peek) peek.textContent = outcome.word;
+      }
+
+      /* ── ACTIVATE CARD 0 ── */
+      function activateTopCard() {
+        const o = outcomes[cardOrder[0]];
+        // set positions
+        fanCards.forEach((c, i) => {
+          c.classList.remove('active');
+          c.setAttribute('data-pos', i);
+          c.classList.toggle('fanned', i !== 0);
+        });
+        fanCards[0].classList.add('active');
+        // fill active body
+        document.getElementById('fc0title').textContent = o.title;
+        document.getElementById('fc0desc').textContent  = o.body;
+        document.getElementById('dialPct').textContent  = o.pct + '%';
+        document.getElementById('dialWord').textContent = o.word.toUpperCase();
+        const arc = document.getElementById('dialArc');
+        arc.style.transition = 'stroke-dashoffset 0.9s ease';
+        setTimeout(() => { arc.style.strokeDashoffset = CIRCUMFERENCE - (o.pct/100)*CIRCUMFERENCE; }, 60);
+      }
+
       /* ── SHOW RESULT ── */
       function showResult() {
         const total = scores.reduce((a,b) => a+b, 0);
         const pct   = Math.round((total / (questions.length * 4)) * 100);
-        const userIdx = outcomes.findIndex(o => pct >= o.min && pct <= o.max);
-        const ui = userIdx !== -1 ? userIdx : outcomes.length - 1;
+        const ui    = outcomes.findIndex(o => pct >= o.min && pct <= o.max);
+        cardOrder   = [ui !== -1 ? ui : outcomes.length-1];
+        outcomes.forEach((_, i) => { if (i !== cardOrder[0]) cardOrder.push(i); });
 
-        // build cardOrder: user result on fan card 0, others on 1-3
-        cardOrder = [ui];
-        outcomes.forEach((_, i) => { if (i !== ui) cardOrder.push(i); });
-
-        // fill all 4 fan cards
-        fanCards.forEach((_, i) => fillCard(i, outcomes[cardOrder[i]]));
-
-        // reveal fan
-        questionsEl.hidden = true;
-        resultEl.classList.add('visible');
-
-        // animate fan spreading with stagger, then set card 0 active
         fanCards.forEach((c, i) => {
           c.classList.remove('active','fanned');
           c.setAttribute('data-pos', i);
-          c.style.transition = 'none';
-          c.style.transform  = 'rotate(0deg)';
+          c.style.transform = 'rotate(0deg)';
+          fillCard(i, outcomes[cardOrder[i]]);
         });
+
+        questionsEl.hidden = true;
+        resultEl.classList.add('visible');
+
+        // reset dial
+        const arc = document.getElementById('dialArc');
+        arc.style.transition = 'none';
+        arc.style.strokeDashoffset = CIRCUMFERENCE;
+
+        // spread fan, then lift active card
         setTimeout(() => {
-          fanCards.forEach(c => { c.style.transition = ''; c.classList.add('fanned'); });
+          fanCards.forEach((c, i) => { if (i !== 0) c.classList.add('fanned'); });
           setTimeout(() => {
-            fanCards[0].classList.add('active');
-            fanCards[0].classList.remove('fanned');
-            const o = outcomes[cardOrder[0]];
-            document.getElementById('fc0title').textContent = o.title;
-            document.getElementById('fc0desc').textContent  = o.body;
-            document.getElementById('dialPct').textContent  = o.pct + '%';
-            document.getElementById('dialWord').textContent = o.word.toUpperCase();
-            const arc = document.getElementById('dialArc');
-            arc.style.transition = 'stroke-dashoffset 1s ease';
-            setTimeout(() => { arc.style.strokeDashoffset = CIRCUMFERENCE - (o.pct/100)*CIRCUMFERENCE; }, 60);
+            activateTopCard();
             playCardSound();
-          }, 500);
-        }, 80);
+          }, 450);
+        }, 100);
       }
 
       /* ── FAN CARD CLICKS ── */
       fanCards.forEach((card, i) => {
         card.addEventListener('click', function() {
           if (this.classList.contains('active')) return;
-          // swap: move clicked card to position 0, shift others
-          const clickedOutcomeIdx = cardOrder[i];
-          const newOrder = [clickedOutcomeIdx];
-          cardOrder.forEach((v, j) => { if (j !== i) newOrder.push(v); });
-          cardOrder = newOrder;
+          playCardSound();
+          // swap clicked card to front
+          const clicked = cardOrder[i];
+          cardOrder = [clicked, ...cardOrder.filter((_, j) => j !== i)];
           fanCards.forEach((c, j) => fillCard(j, outcomes[cardOrder[j]]));
-          setActiveCard(0);
+          activateTopCard();
         });
+      });
+
+      /* ── SHARE ── */
+      document.getElementById('shareCopy').addEventListener('click', function() {
+        const o = outcomes[cardOrder[0]];
+        const txt = 'I scored ' + o.pct + '% (' + o.word + ') on the Value Proposition Sharpness test. How sharp is yours? productsharpener.com';
+        try {
+          navigator.clipboard.writeText(txt).then(() => {
+            this.textContent = '✓ Copied!';
+            setTimeout(() => { this.innerHTML = '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy link'; }, 2000);
+          });
+        } catch(e) {}
+      });
+      document.getElementById('shareEmail').addEventListener('click', function() {
+        const o = outcomes[cardOrder[0]];
+        const subj = 'How sharp is your Value Proposition?';
+        const body = 'I just scored ' + o.pct + '% (' + o.word + ') on the ProductSharpener quiz.\n\n' + o.title + '\n\nTake the free test yourself: https://productsharpener.com';
+        window.location.href = 'mailto:?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body);
       });
 
       /* ── QUESTION CLICKS ── */
@@ -1376,9 +1390,11 @@
 
       /* ── RESTART ── */
       document.getElementById('quizRestart').addEventListener('click', function() {
-        scores = []; current = 0;
-        document.getElementById('dialArc').style.transition = 'none';
-        document.getElementById('dialArc').style.strokeDashoffset = CIRCUMFERENCE;
+        scores = []; current = 0; cardOrder = [0,1,2,3];
+        const arc = document.getElementById('dialArc');
+        arc.style.transition = 'none';
+        arc.style.strokeDashoffset = CIRCUMFERENCE;
+        fanCards.forEach(c => c.classList.remove('active','fanned'));
         resultEl.classList.remove('visible');
         questionsEl.hidden = false;
         quizContainer.hidden = true;
