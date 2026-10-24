@@ -745,24 +745,34 @@
 
         <!-- RESULT -->
         <div class="quiz-result" id="quizResult" hidden>
-          <div class="result-score-wrap">
-            <div class="result-dial">
-              <svg viewBox="0 0 120 120" class="dial-svg">
-                <circle cx="60" cy="60" r="52" fill="none" stroke="var(--light)" stroke-width="10"/>
-                <circle cx="60" cy="60" r="52" fill="none" stroke="var(--accent)" stroke-width="10"
-                  stroke-dasharray="326.7" stroke-dashoffset="326.7"
-                  stroke-linecap="round" transform="rotate(-90 60 60)"
-                  id="dialArc"/>
-              </svg>
-              <div class="dial-label">
-                <span class="dial-pct" id="dialPct">0%</span>
-                <span class="dial-word" id="dialWord">Sharp</span>
+          <div class="result-card">
+            <div class="card-corner tl">
+              <span id="cornerPct">0%</span>
+              <span id="cornerWord">Sharp</span>
+            </div>
+            <div class="card-corner br" aria-hidden="true">
+              <span id="cornerPct2">0%</span>
+              <span id="cornerWord2">Sharp</span>
+            </div>
+
+            <div class="result-score-wrap">
+              <div class="result-dial">
+                <svg viewBox="0 0 120 120" class="dial-svg">
+                  <circle cx="60" cy="60" r="52" fill="none" stroke="var(--light)" stroke-width="10"/>
+                  <circle cx="60" cy="60" r="52" fill="none" stroke="var(--accent)" stroke-width="10"
+                    stroke-dasharray="326.7" stroke-dashoffset="326.7"
+                    stroke-linecap="round" transform="rotate(-90 60 60)"
+                    id="dialArc"/>
+                </svg>
+                <div class="dial-label">
+                  <span class="dial-pct" id="dialPct">0%</span>
+                  <span class="dial-word" id="dialWord">Sharp</span>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="result-content">
-            <h3 class="result-title display" id="resultTitle"></h3>
+            <div class="result-divider"></div>
+            <h3 class="result-title" id="resultTitle"></h3>
             <p class="result-body" id="resultBody"></p>
             <a href="https://www.cal.eu/jennykan11/30-min" class="btn btn-filled" target="_blank" id="resultCTA"></a>
             <button class="quiz-restart" id="quizRestart">Retake the quiz</button>
@@ -1070,20 +1080,50 @@
       font-weight: 500;
     }
 
-    /* RESULT */
+    /* RESULT — playing card */
     .quiz-result {
-      text-align: center;
+      display: flex;
+      justify-content: center;
       animation: fadeUp 0.4s ease;
     }
+    .result-card {
+      background: var(--white);
+      border: 1.5px solid var(--light);
+      border-radius: 20px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.06);
+      width: 340px;
+      padding: 40px 36px 36px;
+      position: relative;
+      text-align: center;
+    }
+    .card-corner {
+      position: absolute;
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .card-corner span {
+      display: block;
+      font-family: 'Inter', sans-serif;
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-top: 2px;
+    }
+    .card-corner.tl { top: 20px; left: 22px; text-align: left; }
+    .card-corner.br { bottom: 20px; right: 22px; text-align: right; transform: rotate(180deg); }
     .result-score-wrap {
       display: flex;
       justify-content: center;
-      margin-bottom: 40px;
+      margin: 12px 0 28px;
     }
     .result-dial {
       position: relative;
-      width: 160px;
-      height: 160px;
+      width: 140px;
+      height: 140px;
     }
     .dial-svg { width: 100%; height: 100%; }
     .dial-label {
@@ -1095,38 +1135,49 @@
       justify-content: center;
     }
     .dial-pct {
-      font-size: 28px;
+      font-size: 26px;
       font-weight: 600;
       color: var(--black);
       line-height: 1;
     }
     .dial-word {
-      font-size: 13px;
+      font-size: 11px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--accent);
       margin-top: 4px;
     }
+    .result-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--light);
+      margin: 0 auto 24px;
+    }
     .result-title {
       font-family: 'DM Serif Display', serif;
-      font-size: clamp(28px, 3vw, 42px);
-      margin-bottom: 20px;
+      font-size: 22px;
+      line-height: 1.25;
+      margin-bottom: 14px;
       color: var(--black);
     }
     .result-body {
       color: var(--mid);
-      font-size: 17px;
+      font-size: 14px;
       line-height: 1.7;
-      max-width: 520px;
-      margin: 0 auto 32px;
+      margin-bottom: 28px;
+    }
+    .result-card .btn {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
     }
     .quiz-restart {
       display: block;
-      margin: 16px auto 0;
+      margin: 14px auto 0;
       background: none;
       border: none;
       color: var(--mid);
-      font-size: 14px;
+      font-size: 13px;
       cursor: pointer;
       text-decoration: underline;
     }
@@ -1144,6 +1195,10 @@
       const dialArc   = document.getElementById('dialArc');
       const dialPct   = document.getElementById('dialPct');
       const dialWord  = document.getElementById('dialWord');
+      const cornerPct  = document.getElementById('cornerPct');
+      const cornerWord = document.getElementById('cornerWord');
+      const cornerPct2  = document.getElementById('cornerPct2');
+      const cornerWord2 = document.getElementById('cornerWord2');
       const resultTitle = document.getElementById('resultTitle');
       const resultBody  = document.getElementById('resultBody');
       const resultCTA   = document.getElementById('resultCTA');
@@ -1204,8 +1259,12 @@
         dialArc.style.transition = 'stroke-dashoffset 1s ease';
         setTimeout(() => { dialArc.style.strokeDashoffset = offset; }, 50);
 
-        dialPct.textContent   = outcome.pct + '%';
-        dialWord.textContent  = outcome.word;
+        dialPct.textContent    = outcome.pct + '%';
+        dialWord.textContent   = outcome.word;
+        cornerPct.textContent  = outcome.pct + '%';
+        cornerWord.textContent = outcome.word;
+        cornerPct2.textContent  = outcome.pct + '%';
+        cornerWord2.textContent = outcome.word;
         resultTitle.textContent = outcome.title;
         resultBody.textContent  = outcome.body;
         resultCTA.textContent   = outcome.cta;
@@ -1236,6 +1295,8 @@
         scores = [];
         dialArc.style.transition = 'none';
         dialArc.style.strokeDashoffset = CIRCUMFERENCE;
+        cornerPct.textContent = cornerPct2.textContent = '0%';
+        cornerWord.textContent = cornerWord2.textContent = '';
         resultEl.hidden = true;
         questionsEl.hidden = false;
         goToQuestion(0);
