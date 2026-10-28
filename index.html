@@ -671,9 +671,79 @@
       footer { padding: 24px 32px; flex-direction: column; gap: 12px; text-align: center; }
     }
 
+    /* HAMBURGER */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 36px;
+      height: 36px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 4px;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 1.5px;
+      background: var(--black);
+      border-radius: 2px;
+      transition: transform 0.2s, opacity 0.2s;
+      transform-origin: center;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+    /* MOBILE DRAWER */
+    .nav-drawer {
+      display: none;
+      position: fixed;
+      top: 64px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--bg);
+      z-index: 99;
+      flex-direction: column;
+      padding: 32px 20px;
+      gap: 0;
+      border-top: 1px solid var(--light);
+    }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer a {
+      text-decoration: none;
+      color: var(--black);
+      font-size: 22px;
+      font-weight: 500;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--light);
+      letter-spacing: -0.01em;
+      transition: color 0.2s;
+    }
+    .nav-drawer a:hover { color: var(--accent); }
+    .nav-drawer .drawer-cta {
+      margin-top: 32px;
+      display: inline-block;
+      background: var(--black);
+      color: var(--white) !important;
+      font-size: 15px !important;
+      font-weight: 600 !important;
+      padding: 16px 28px;
+      border-radius: 6px;
+      text-align: center;
+      border-bottom: none !important;
+      letter-spacing: 0.01em;
+    }
+    .nav-drawer .drawer-cta:hover { opacity: 0.8; color: var(--white) !important; }
+
     @media (max-width: 600px) {
       nav { padding: 0 20px; }
-      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
       .hero-inner { padding: 0 20px; }
       .container { padding: 0 20px; }
       section { padding: 60px 0; }
@@ -726,7 +796,38 @@
       <a href="#process">Process</a>
       <a href="https://www.cal.eu/jennykan11/30-min" class="nav-cta" target="_blank">Book a call →</a>
     </div>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
+
+  <!-- MOBILE DRAWER -->
+  <div class="nav-drawer" id="navDrawer">
+    <a href="#services" class="drawer-link">Services</a>
+    <a href="about.html" class="drawer-link">About</a>
+    <a href="#process" class="drawer-link">Process</a>
+    <a href="https://www.cal.eu/jennykan11/30-min" class="drawer-cta" target="_blank">Book a call →</a>
+  </div>
+  <script>
+    (function(){
+      var btn = document.getElementById('navHamburger');
+      var drawer = document.getElementById('navDrawer');
+      btn.addEventListener('click', function(){
+        var open = drawer.classList.toggle('open');
+        btn.classList.toggle('open', open);
+        btn.setAttribute('aria-expanded', open);
+        document.body.style.overflow = open ? 'hidden' : '';
+      });
+      drawer.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          drawer.classList.remove('open');
+          btn.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+          document.body.style.overflow = '';
+        });
+      });
+    })();
+  </script>
 
   <!-- HERO -->
   <div class="hero">
