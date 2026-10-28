@@ -10,8 +10,8 @@ She co-founded Product Pulse (an online product community), created KnowTheAct (
 
 ## What she offers
 
-- **Foundation Sprint Workshop** (2 days, €1,200) — Value proposition, USPs and GTM messaging, sharpened with your team.
-- **Strategy Jam** (half or full day, €2,400) — Joint vision alignment across stakeholders.
+- **Foundation Sprint Workshop** (2 days, €2,400) — Value proposition, USPs and GTM messaging, sharpened with your team.
+- **Strategy Jam** (half or full day, €1,200) — Joint vision alignment across stakeholders.
 - **Design Sprint** (5 days, €5,500) — Discovery, research and a working prototype built alongside your team.
 - **Innovation Sprint** — A new proposition, MVP or prototype built with your team.
 - **Customer Journey Mapping** — See exactly where customers stall and where the value is hiding.
