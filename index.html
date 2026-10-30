@@ -1190,7 +1190,15 @@
     var progressWrap  = document.getElementById('pitchProgressWrap');
     var durationEl    = document.getElementById('pitchDuration');
 
-    var mediaRecorder, chunks = [], audioBlob, audioURL, audioEl;
+    var mediaRecorder, chunks = [], audioBlob, audioURL, audioEl, mimeType;
+
+    function getSupportedMimeType() {
+      var types = ['audio/webm;codecs=opus', 'audio/webm', 'audio/mp4', 'audio/ogg', ''];
+      for (var i = 0; i < types.length; i++) {
+        if (types[i] === '' || (window.MediaRecorder && MediaRecorder.isTypeSupported(types[i]))) return types[i];
+      }
+      return '';
+    }
     var timer, secondsLeft, startTime;
 
     function show(el) {
@@ -1231,11 +1239,13 @@
         if (recHint) recHint.textContent = 'Sell it. You\'ve got 30 seconds.';
         if (stopLabel) stopLabel.textContent = 'Stop';
         chunks = [];
-        mediaRecorder = new MediaRecorder(stream);
+        mimeType = getSupportedMimeType();
+        var options = mimeType ? { mimeType: mimeType } : {};
+        mediaRecorder = new MediaRecorder(stream, options);
         mediaRecorder.ondataavailable = function(e) { if (e.data.size > 0) chunks.push(e.data); };
         mediaRecorder.onstop = function() {
           stream.getTracks().forEach(function(t){ t.stop(); });
-          audioBlob = new Blob(chunks, { type: 'audio/webm' });
+          audioBlob = new Blob(chunks, { type: mimeType || 'audio/mp4' });
           audioURL  = URL.createObjectURL(audioBlob);
           setupPlayback();
           show(stateDone);
