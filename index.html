@@ -1454,12 +1454,13 @@
           <div class="gate-inner">
             <p class="gate-eyebrow">Your results are ready</p>
             <h3 class="gate-headline">Where should we send your score?</h3>
-            <p class="gate-sub">Enter your email and we'll show your result instantly. No spam, ever.</p>
+            <p class="gate-sub">Enter your details and we'll show your result instantly. No spam, ever.</p>
             <form class="gate-form" id="gateForm" novalidate>
+              <input type="text" id="gateName" class="gate-input" placeholder="Your name" required autocomplete="name" />
               <input type="email" id="gateEmail" class="gate-input" placeholder="you@company.com" required autocomplete="email" />
               <button type="submit" class="btn btn-filled gate-submit">Show my results →</button>
             </form>
-            <p class="gate-error" id="gateError" hidden>Please enter a valid email address.</p>
+            <p class="gate-error" id="gateError" hidden>Please fill in your name and a valid email address.</p>
             <p class="gate-sending" id="gateSending" hidden>Sending…</p>
           </div>
         </div>
@@ -2127,6 +2128,7 @@
       /* ── EMAIL GATE ── */
       const quizGate  = document.getElementById('quizGate');
       const gateForm  = document.getElementById('gateForm');
+      const gateName  = document.getElementById('gateName');
       const gateEmail = document.getElementById('gateEmail');
       const gateError = document.getElementById('gateError');
       const gateSend  = document.getElementById('gateSending');
@@ -2136,13 +2138,14 @@
         quizTrigger.hidden = true;
         quizContainer.hidden = false;
         quizGate.hidden = false;
-        gateEmail.focus();
+        gateName.focus();
       }
 
       gateForm.addEventListener('submit', async function(e) {
         e.preventDefault();
+        const name  = gateName.value.trim();
         const email = gateEmail.value.trim();
-        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        if (!name || !email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
           gateError.hidden = false; return;
         }
         gateError.hidden = true;
@@ -2150,10 +2153,9 @@
         gateForm.querySelector('button').disabled = true;
 
         try {
-          await fetch('https://formspree.io/f/REPLACE_WITH_YOUR_ID', {
+          await fetch('https://script.google.com/macros/s/AKfycbzduyjgccjLlXH-WQCbq-3Rh-4hLlXJtaw-niN-HsEcVAdmoGaZFu60l89Lk6f6zJee/exec', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-            body: JSON.stringify({ email, source: 'quiz' })
+            body: JSON.stringify({ name, email })
           });
         } catch (_) { /* still show result even if submit fails */ }
 
@@ -2179,6 +2181,7 @@
       document.getElementById('quizRestart').addEventListener('click', function() {
         scores = []; current = 0; cardOrder = [0,1,2,3];
         quizGate.hidden = true;
+        gateName.value = '';
         gateEmail.value = '';
         gateError.hidden = true;
         gateSend.hidden = true;
