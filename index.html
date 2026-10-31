@@ -1449,6 +1449,21 @@
 
         </div><!-- /quiz-questions -->
 
+        <!-- EMAIL GATE -->
+        <div class="quiz-gate" id="quizGate" hidden>
+          <div class="gate-inner">
+            <p class="gate-eyebrow">Your results are ready</p>
+            <h3 class="gate-headline">Where should we send your score?</h3>
+            <p class="gate-sub">Enter your email and we'll show your result instantly. No spam, ever.</p>
+            <form class="gate-form" id="gateForm" novalidate>
+              <input type="email" id="gateEmail" class="gate-input" placeholder="you@company.com" required autocomplete="email" />
+              <button type="submit" class="btn btn-filled gate-submit">Show my results →</button>
+            </form>
+            <p class="gate-error" id="gateError" hidden>Please enter a valid email address.</p>
+            <p class="gate-sending" id="gateSending" hidden>Sending…</p>
+          </div>
+        </div>
+
         <!-- RESULT -->
         <div class="quiz-result" id="quizResult">
 
@@ -1812,6 +1827,23 @@
       font-weight: 500;
     }
 
+    /* EMAIL GATE */
+    .quiz-gate { padding: 48px 0 24px; }
+    .gate-inner { max-width: 440px; margin: 0 auto; text-align: center; }
+    .gate-eyebrow { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
+    .gate-headline { font-family: 'DM Serif Display', serif; font-size: 28px; line-height: 1.2; margin-bottom: 12px; }
+    .gate-sub { font-size: 14px; color: var(--mid); margin-bottom: 28px; line-height: 1.6; }
+    .gate-form { display: flex; flex-direction: column; gap: 12px; }
+    .gate-input {
+      width: 100%; padding: 14px 16px; font-size: 15px; font-family: 'Inter', sans-serif;
+      border: 1.5px solid var(--light); border-radius: 8px; background: var(--white);
+      color: var(--black); outline: none; transition: border-color 0.2s;
+    }
+    .gate-input:focus { border-color: var(--black); }
+    .gate-submit { width: 100%; justify-content: center; cursor: pointer; border: none; font-size: 15px; }
+    .gate-error { font-size: 13px; color: var(--accent); margin-top: 8px; }
+    .gate-sending { font-size: 13px; color: var(--mid); margin-top: 8px; }
+
     /* RESULT */
     .quiz-result { display: none; }
     .quiz-result.visible { display: block; }
@@ -2092,6 +2124,43 @@
         window.location.href = 'mailto:?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(body);
       });
 
+      /* ── EMAIL GATE ── */
+      const quizGate  = document.getElementById('quizGate');
+      const gateForm  = document.getElementById('gateForm');
+      const gateEmail = document.getElementById('gateEmail');
+      const gateError = document.getElementById('gateError');
+      const gateSend  = document.getElementById('gateSending');
+
+      function showGate() {
+        questionsEl.hidden = true;
+        quizTrigger.hidden = true;
+        quizContainer.hidden = false;
+        quizGate.hidden = false;
+        gateEmail.focus();
+      }
+
+      gateForm.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const email = gateEmail.value.trim();
+        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+          gateError.hidden = false; return;
+        }
+        gateError.hidden = true;
+        gateSend.hidden = false;
+        gateForm.querySelector('button').disabled = true;
+
+        try {
+          await fetch('https://formspree.io/f/REPLACE_WITH_YOUR_ID', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify({ email, source: 'quiz' })
+          });
+        } catch (_) { /* still show result even if submit fails */ }
+
+        quizGate.hidden = true;
+        showResult();
+      });
+
       /* ── QUESTION CLICKS ── */
       document.querySelectorAll('.quiz-opt').forEach(btn => {
         btn.addEventListener('click', function() {
@@ -2101,7 +2170,7 @@
           scores[parseInt(qEl.dataset.q) - 1] = parseInt(this.dataset.value);
           setTimeout(() => {
             if (current < questions.length - 1) goToQuestion(current + 1);
-            else showResult();
+            else showGate();
           }, 300);
         });
       });
@@ -2109,6 +2178,10 @@
       /* ── RESTART ── */
       document.getElementById('quizRestart').addEventListener('click', function() {
         scores = []; current = 0; cardOrder = [0,1,2,3];
+        quizGate.hidden = true;
+        gateEmail.value = '';
+        gateError.hidden = true;
+        gateSend.hidden = true;
         const arc = document.getElementById('dialArc');
         arc.style.transition = 'none';
         arc.style.strokeDashoffset = CIRCUMFERENCE;
